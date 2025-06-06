@@ -1,0 +1,27 @@
+default_job = "check"
+env.CARGO_TERM_COLOR = "always"
+
+[jobs.wasm-dev]
+command = ["sh", "-c", "cargo build --target=wasm32-unknown-unknown && wasm-bindgen target/wasm32-unknown-unknown/release/portfolio.wasm --out-dir ../client/src/lib/pkg"]
+
+[jobs.check]
+command = ["cargo", "check"]
+need_stdout = false
+
+[jobs.check-all]
+command = ["cargo", "check", "--all-targets"]
+need_stdout = false
+
+# Run clippy on the default target
+[jobs.clippy]
+command = ["cargo", "clippy"]
+need_stdout = false
+
+# You may define here keybindings that would be specific to
+# a project, for example a shortcut to launch a specific job.
+# Shortcuts to internal functions (scrolling, toggling, etc.)
+# should go in your personal global prefs.toml file instead.
+[keybindings]
+# alt-m = "job:my-job"
+c = "job:clippy"
+w = "job:wasm-dev"
