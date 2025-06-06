@@ -1,0 +1,17 @@
+{
+  "name": "portfolio",
+  "version": "0.0.0",
+  "description": "my web portfolio",
+  "license": "MIT",
+  "author": "Arthur Petroff",
+  "workspaces": [
+    "client",
+    "server",
+    "wasm"
+  ],
+  "scripts": {
+    "dev": "tmux new-session -s 'portfolio (dev)' 'npm run dev:client' \\; split-window 'npm run dev:server' \\; select-layout even-horizontal \\;",
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "while true; echo 'UNIMPL.'; do sleep 5; done"
+  }
+}
