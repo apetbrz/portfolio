@@ -1,10 +1,10 @@
 # Portfolio
 
-## Arthur Petroff
+### Arthur Petroff
 
 My little slice of the internet :)
 
-### Requirements
+## Requirements
 
 - `todo!()`
 - `tmux`
