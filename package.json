@@ -10,13 +10,14 @@
     "wasm"
   ],
   "scripts": {
+    "init": "npm install && cd wasm && cargo install",
     "dev": "tmux new-session -s 'portfolio (dev)' 'npm run dev:server' \\; split-window 'npm run dev:client:js' \\; split-window 'npm run dev:client:wasm' \\; select-layout even-horizontal \\;",
     "dev:client:js": "cd client && npm run dev",
     "dev:client:wasm": "cd wasm && bacon clippy",
     "dev:server": "while true; echo 'UNIMPL.'; do sleep 5; done",
     "build": "npm run build:client:wasm && npm run build:client:js",
     "build:client:js": "cd client && npm run build",
-    "build:client:wasm": "cd wasm && cargo build --release --target=wasm32-unknown-unknown && wasm-bindgen target/wasm32-unknown-unknown/release/portfolio.wasm --out-dir ../client/src/lib/pkg",
+    "build:client:wasm": "cd wasm && cargo build --release && wasm-bindgen target/wasm32-unknown-unknown/release/portfolio.wasm --out-dir ../client/src/lib/pkg",
     "clean:dev": "rm -r wasm/target/debug wasm/target/wasm32-unknown-unknown/debug client/src/lib/pkg",
     "clean:release": "rm -r wasm/target/release wasm/target/wasm32-unknown-unknown/release dist"
   }

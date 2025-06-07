@@ -2,11 +2,11 @@ default_job = "check"
 env.CARGO_TERM_COLOR = "always"
 
 [jobs.wasm-dev]
-command = ["sh", "-c", "cargo build --target=wasm32-unknown-unknown && wasm-bindgen target/wasm32-unknown-unknown/debug/portfolio.wasm --out-dir ../client/src/lib/pkg"]
+command = ["sh", "-c", "cargo build && wasm-bindgen target/wasm32-unknown-unknown/debug/portfolio.wasm --out-dir ../client/src/lib/pkg"]
 need_stdout = false
 
 [jobs.wasm-release]
-command = ["sh", "-c", "cargo build --release --target=wasm32-unknown-unknown && wasm-bindgen target/wasm32-unknown-unknown/release/portfolio.wasm --out-dir ../client/src/lib/pkg"]
+command = ["sh", "-c", "cargo build --release && wasm-bindgen target/wasm32-unknown-unknown/release/portfolio.wasm --out-dir ../client/src/lib/pkg"]
 
 [jobs.check]
 command = ["cargo", "check"]
