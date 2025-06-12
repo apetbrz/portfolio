@@ -3,7 +3,7 @@
 </script>
 
 <main
-    class="mx-auto overflow-hidden text-stone-200 font-mono lg:max-w-4xl md:max-w-2xl bg-scenic-image inset-shadow-sm/50"
+    class="mx-auto overflow-hidden text-stone-200 font-mono lg:max-w-4xl md:max-w-2xl bg-scenic-image md:inset-shadow-sm/50"
 >
     <div
         class="my-20 px-16 py-8 bg-stone-700 md:rounded-lg md:max-w-max mx-auto justify-center drop-shadow-md shadow-stone-900/50 text-shadow-stone-900 text-shadow-md/50"
