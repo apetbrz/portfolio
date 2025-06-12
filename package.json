@@ -10,7 +10,7 @@
         "wasm"
     ],
     "scripts": {
-        "init": "npm install && cd wasm && cargo install",
+        "init": "npm install && cd wasm && cargo install && cd ../server && cargo install",
         "dev": "tmux new-session -s 'portfolio (dev)' 'npm run dev:server' \\; split-window 'npm run dev:client:js' \\; split-window 'npm run dev:client:wasm' \\; select-layout even-horizontal \\;",
         "dev:client:js": "cd client && npm run dev",
         "dev:client:wasm": "cd wasm && bacon clippy",
