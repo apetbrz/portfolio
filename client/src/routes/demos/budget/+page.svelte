@@ -1,6 +1,8 @@
 <script>
     import NavBar from "$lib/NavBar.svelte";
+    import Demo from "./Demo.svelte";
 </script>
+
 <main
     class="mx-auto overflow-hidden font-mono lg:max-w-4xl md:max-w-2xl bg-scenic-image md:inset-shadow-sm/50"
 >
@@ -15,6 +17,7 @@
     <div class="pretty continent px-8 flex flex-col">
         <h2>nclbt</h2>
         <h4>nice command-line budget tool</h4>
+        <Demo />
         <p class="indent-8">
             Going through university teaches you a lot about yourself. I found
             out that I am not as good with money as I'd like to be. To help with
