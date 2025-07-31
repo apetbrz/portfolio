@@ -30,6 +30,24 @@
             for the command-line or as a library for use in other projects, such
             as WASM for this demo. Hope you find it interesting!
         </p>
+        <p class="indent-8">
+            Here's the commands for the interactive text interface: (everything
+            in [square brackets] is a value)
+        </p>
+        <ul>
+            <li>income set [amount]: sets your expected income</li>
+            <li>income raise [amount]: adds to your income</li>
+            <li>paid: receive your income</li>
+            <li>paid [amount]: receive some amount</li>
+            <li>
+                new [name] [amount]: create a new expenditure (overrides
+                existing copies)
+            </li>
+            <li>pay [name]: pay a static expenditure</li>
+            <li>pay [name] [amount]: pay some amount to an expenditure</li>
+            <li>save [amount]: add an amount into savings [unimpl.]</li>
+            <li>save all: add the remaining balance into savings [unimpl.]</li>
+        </ul>
     </div>
     <div class="h-[64rem]"></div>
 </main>
