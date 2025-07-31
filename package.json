@@ -10,16 +10,15 @@
         "wasm"
     ],
     "scripts": {
-        "init": "npm install && rustup target add wasm32-unknown-unknown && cargo install wasm-bindgen-cli",
-        "dev": "tmux new-session -s 'portfolio (dev)' 'npm run dev:server' \\; split-window 'npm run dev:client:js' \\; split-window 'npm run dev:client:wasm' \\; select-layout even-horizontal \\;",
-        "dev:client:js": "cd client && npm run dev",
-        "dev:client:wasm": "cd wasm && bacon clippy",
+        "init": "npm install && rustup target add wasm32-unknown-unknown && cargo install wasm-bindgen-cli && git clone --progress https://github.com/apetbrz/nclbt wasm/nclbt",
+        "dev": "tmux new-session -s 'portfolio (dev)' 'npm run dev:server' \\; split-window 'npm run dev:client' \\; select-layout even-horizontal \\;",
+        "dev:client": "cd client && npm run dev",
         "dev:server": "while true; echo 'UNIMPL.'; do sleep 5; done",
-        "build": "npm run build:client:wasm && npm run build:client:js",
-        "build:client:js": "cd client && npm run build",
-        "build:client:wasm": "cd wasm && cargo build --release && wasm-bindgen target/wasm32-unknown-unknown/release/portfolio.wasm --out-dir ../client/src/lib/pkg",
-        "clean:dev": "rm -r wasm/target/debug wasm/target/wasm32-unknown-unknown/debug client/src/lib/pkg",
-        "clean:release": "rm -r wasm/target/release wasm/target/wasm32-unknown-unknown/release dist",
+        "build": "npm run build:wasm && npm run build:js",
+        "build:js": "cd client && npm run build",
+        "build:wasm": "(DIR=$PWD; cd wasm/nclbt && cargo xtask build_wasm $DIR/client/src/lib/pkg)",
+        "clean": "rm -r client/src/lib/pkg dist",
+        "clean:wasm": "mv ./client/src/lib/",
         "start": "cd server && export IS_RELEASE=1 && cargo run --release"
     }
 }
