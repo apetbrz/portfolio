@@ -20,5 +20,9 @@
         "clean": "rm -r client/src/lib/pkg dist",
         "clean:wasm": "mv ./client/src/lib/",
         "start": "cd server && export IS_RELEASE=1 && cargo run --release"
+    },
+    "dependencies": {
+        "vite-plugin-top-level-await": "^1.6.0",
+        "vite-plugin-wasm": "^3.5.0"
     }
 }
