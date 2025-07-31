@@ -1,18 +1,40 @@
 <script>
-    import { Budget } from "$lib/pkg/nlbl.js";
+    import { Budget, format_dollars } from "$lib/pkg/nlbl.js";
+
     const beautify = (acc) => {
+        let ce = acc.current_expenses
+            .entries()
+            .toArray()
+            .map((e) => {
+                return `\n${e[0]}: ${format_dollars(e[1])}`;
+            });
+        let ee = acc.expected_expenses
+            .entries()
+            .toArray()
+            .map((e) => {
+                return `\n${e[0]}: ${format_dollars(e[1])}`;
+            });
+
         return `Welcome, ${acc.account}!\n
-                Current Balance: $${acc.current_balance / 100}
-                Expected Income: $${acc.expected_income / 100}
-                Expenses: ${JSON.stringify(acc.current_expenses)}
-                Expenses: ${JSON.stringify(acc.expected_expenses)}`;
+                Current Balance: ${format_dollars(acc.current_balance)}
+                Expected Income: ${format_dollars(acc.expected_income)}
+                Current Expenses: ${ce}
+                Expense Limits: ${ee}`;
     };
+
     let account = $state(new Budget("Demo User"));
     let display = $derived(beautify(account.as_obj()));
     let input = $state("");
 
     const execute = () => {
-        account = account.execute_string(input);
+        console.log(input);
+        console.log(account);
+        console.log(account.__wbg_ptr);
+        try {
+            account = account.execute_string_immut(input);
+        } catch (err) {
+            console.error(err);
+        }
         input = "";
     };
 </script>
@@ -26,6 +48,11 @@
             type="text"
             bind:value={input}
             class="pretty bg-stone-800 md:w-[80%]"
+            onkeypress={(ev) => {
+                if (ev.key === "Enter") {
+                    execute();
+                }
+            }}
         />
         <button
             type="submit"
