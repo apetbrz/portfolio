@@ -1,9 +1,8 @@
 <script>
-    import { greet } from "./pkg/portfolio";
-    let count = $state(0);
+    import { Budget } from "$lib/pkg/nlbl.js";
+    let account = $state(new Budget("Test"));
     const increment = () => {
-        count += 1;
-        console.log(greet());
+        account = account.execute_string("paid 10");
     };
 </script>
 
@@ -11,5 +10,5 @@
     class="p-2 bg-stone-700 rounded-md w-full border-stone-700 border-2 hover:bg-stone-800 active:bg-stone-900 focus:outline-2 focus:outline-stone-700 focus:outline-offset-2"
     onclick={increment}
 >
-    count is {count}
+    {account.stringify()}
 </button>

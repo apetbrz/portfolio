@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
 
 @theme {
     --color-background: #292524;
@@ -6,4 +8,37 @@
 
 body {
     background-color: var(--color-background);
+}
+
+.pretty {
+    @apply prose prose-invert prose-stone drop-shadow-md shadow-stone-900/50 text-shadow-stone-900 text-shadow-md/50;
+}
+
+.page-head {
+    @apply min-h-32 flex flex-col justify-end align-text-bottom px-16;
+}
+
+.continent {
+    @apply bg-stone-700 m-0 min-w-full;
+}
+
+.island {
+    @apply p-8 bg-stone-700 md:rounded-md w-full;
+}
+
+.island-mid {
+    @apply my-8 mx-auto p-8 bg-stone-700 md:rounded-lg md:w-[32rem] justify-center drop-shadow-md shadow-stone-900/50 text-shadow-stone-900 text-shadow-md/50 flex space-y-2 flex-col;
+}
+
+.float-large {
+    @apply my-8 mx-auto p-8 lg:w-[52rem] md:w-[38rem];
+}
+
+.island-large {
+    @apply my-8 mx-auto p-8 lg:w-[52rem] md:w-[38rem] justify-center;
+    @apply bg-stone-700 md:rounded-lg justify-center drop-shadow-md shadow-stone-900/50 text-shadow-stone-900 text-shadow-md/50;
+}
+
+.pretty-button {
+    @apply p-2 bg-stone-800 rounded-md w-full border-stone-800 border-2 hover:bg-stone-900 active:bg-stone-950 focus:outline-2 focus:outline-stone-700 focus:outline-offset-2
 }

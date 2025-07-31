@@ -1,16 +1,22 @@
-<div
-    class="px-24 py-8 bg-stone-700 mx-auto drop-shadow-md shadow-stone-900/50 text-shadow-stone-900 text-shadow-md/50 flex justify-start space-x-2"
->
+<script>
+    let props = $props();
+</script>
+
+{#snippet link(display = "home", dest = "/" + display)}
     <a
-        href="/"
-        class="text-sm px-1 py-0.5 underline hover:text-stone-400 rounded-xs focus:outline-2 focus:outline-stone-200 focus:outline-offset-2"
+        href={dest}
+        class="hover:text-stone-400 rounded-xs focus:outline-2 focus:outline-stone-100 focus:outline-offset-2 {props.active ==
+        display
+            ? 'underline'
+            : '!no-underline'}"
     >
-        <!-- home -->
+        {display}
     </a>
-    <a
-        href="/demos"
-        class="text-sm px-1 py-0.5 underline hover:text-stone-400 rounded-xs focus:outline-2 focus:outline-stone-200 focus:outline-offset-2"
-    >
-        <!-- demos -->
-    </a>
+{/snippet}
+
+<div class="pretty continent px-16 py-8">
+    {@render link("home", "/")}
+    {@render link("about")}
+    {@render link("blog")}
+    {@render link("demos")}
 </div>
