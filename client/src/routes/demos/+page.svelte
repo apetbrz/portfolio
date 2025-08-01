@@ -13,9 +13,10 @@
 
     <div class="pretty grid gap-8 grid-cols-2 float-large">
         <div class="island">
-            <a href="/demos/budget" class="underline"> nclbt </a>
+            <a href="https://github.com/apetbrz/nclbt" class="underline">
+                nclbt
+            </a>
             <p>A simple command-line utility for budget assistance.</p>
-            <a href="/demos/budget">Try it out!</a>
         </div>
         <div class="island">
             <a href="https://relics.apetbrz.dev/">QuickRelics</a>
