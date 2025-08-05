@@ -3,14 +3,14 @@
 </script>
 
 <div class="pretty flex space-x-[1ch]">
-    <p class="">{props.static}</p>
+    <p class="!my-0 ml-{props.indent}">{props.static}</p>
     <div class="overflow-hidden flex space-x-[1ch]">
-        <p class="text-nowrap titles">
+        <span class="titles text-nowrap">
             {props.text}
-        </p>
-        <p class="text-nowrap titles">
+        </span>
+        <span class="titles text-nowrap">
             {props.text}
-        </p>
+        </span>
     </div>
 </div>
 

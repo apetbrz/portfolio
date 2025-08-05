@@ -4,6 +4,29 @@
 
 @theme {
     --color-background: #292524;
+    --font-sans: "EBGaramond";
+    --font-bold: "EBGaramond";
+    --font-serif: "EBGaramond";
+    --font-mono: "Fira-Code";
+}
+
+@font-face {
+    font-family: "EBGaramond", serif;
+    font-weight: normal;
+    font-style: normal;
+    src: url("$lib/fonts/EBGaramond-0.016/ttf/EBGaramond08-Regular.ttf");
+}
+
+.sans {
+    font-family: "EBGaramond", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.mono {
+    font-family: "Fira-Code", mono;
+    font-weight: 400;
+    font-style: normal;
 }
 
 body {
@@ -11,15 +34,15 @@ body {
 }
 
 .pretty {
-    @apply prose prose-invert prose-stone drop-shadow-md shadow-stone-900/50 text-shadow-stone-900 text-shadow-md/50;
+    @apply prose prose-invert prose-stone drop-shadow-md shadow-stone-900/50 text-shadow-stone-900 text-shadow-md/50 tracking-widest;
 }
 
 .page-head {
-    @apply min-h-32 flex flex-col justify-end align-text-bottom px-16;
+    @apply h-32 flex flex-col justify-end align-text-bottom px-16 lg:text-2xl lg:min-h-48 py-4;
 }
 
 .continent {
-    @apply bg-stone-700 m-0 min-w-full;
+    @apply bg-stone-700 mx-0 min-w-full;
 }
 
 .island {
