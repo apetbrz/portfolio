@@ -48,7 +48,7 @@
                     Web Framework Performance Study
                 </a>
                 <p>
-                    An comparison in speed and efficiency of four different web
+                    A comparison in speed and efficiency of four different web
                     back-ends, across four programming languages.
                 </p>
             </div>
