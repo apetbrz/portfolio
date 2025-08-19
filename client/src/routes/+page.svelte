@@ -20,15 +20,18 @@
                 src="/workpfp.jpg"
                 alt="me"
             />
-            <div class="island pretty block">
-                <p class="!mt-0 w-full">Reach out to me!</p>
-                <a href="mailto:apetbrz@gmail.com" class="w-full">@gmail</a>
-                <a href="https://github.com/apetbrz" class="w-full">github</a>
+            <div class="island sans pretty block">
+                <p class="!mt-0 w-full block">Reach out to me!</p>
+                <a href="mailto:apetbrz@gmail.com" class="w-full block">gmail</a
+                >
+                <a href="https://github.com/apetbrz" class="w-full block"
+                    >github</a
+                >
                 <a
                     href="https://www.linkedin.com/in/arthur-t-petroff/"
-                    class=""
+                    class="block"
                 >
-                    linked/in
+                    linkedin
                 </a>
             </div>
         </div>
