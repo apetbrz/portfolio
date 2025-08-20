@@ -13,8 +13,8 @@
 
     <NavBar active="home" />
 
-    <div class="lg:grid lg:grid-cols-4 gap-4 w-[100%] px-8">
-        <div class="lg:flex flex-col justify-evenly">
+    <div class="lg:grid lg:grid-cols-7 gap-4 w-[100%] px-8">
+        <div class="lg:flex flex-col justify-evenly col-span-2">
             <img
                 class="island-mid !mx-auto lg:!mx-0 !p-2 h-min w-full aspect-square"
                 src="/workpfp.jpg"
@@ -36,24 +36,25 @@
             </div>
         </div>
         <div
-            class="lg:flex col-span-3 space-y-4 flex-col justify-evenly h-min w-full p-8"
+            class="lg:flex col-span-5 col-start-3 space-y-4 flex-col justify-evenly h-min w-full p-8"
         >
             <div class="island pretty sans mt-4">
                 <Marquee
                     static="I'm"
                     indent="true"
                     text="a software developer, a tinkerer, a back-end engineer, a systems
-            programmer, a nerd, a tutor, a supporter, a rustacean, an arch user btw,"
+                        programmer, a nerd, a tutor, a supporter, a rustacean, an arch user btw,"
                 />
                 <p class="!mt-0">
-                    based out of Columbia, South Carolina, with a lifelong
-                    passion for knowledge and growth.
+                    based out of Columbia, South Carolina, with a deep lifelong
+                    passion for tinkering.
                 </p>
                 <p class="indent-4">
-                    Currently deep in the worlds of <bold>Rust</bold>,
-                    <bold>Linux</bold>, <bold>JavaScript</bold>, and
-                    <bold>shell scripting</bold>, but happy and excited to talk
-                    about anything in the world of software!
+                    I'm dedicated to writing high quality, efficient,
+                    maintainable software. Currently deep in the worlds of
+                    <bold>Rust</bold>, <bold>Linux</bold>, <bold>C</bold>,
+                    <bold>JavaScript</bold>, and <bold>shell scripting</bold>,
+                    but excited about everything in the world of software!
                 </p>
                 <a href="/projects">Check out some things I've made!</a>
             </div>
