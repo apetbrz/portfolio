@@ -1,9 +1,8 @@
 <script>
     let props = $props();
-    let indent_padding = "!pl-" + props.indent;
 </script>
 
-<div class="pretty flex {indent_padding}">
+<div class="pretty flex {props.indent ? '!pl-4' : ''}">
     <p class="!my-0">{props.static}</p>
     <p class="!m-0">&nbsp;</p>
     <div class="overflow-hidden flex space-x-[1ch]">

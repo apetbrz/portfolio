@@ -41,7 +41,7 @@
             <div class="island pretty sans mt-4">
                 <Marquee
                     static="I'm"
-                    indent="4"
+                    indent="true"
                     text="a software developer, a tinkerer, a back-end engineer, a systems
             programmer, a nerd, a tutor, a supporter, a rustacean, an arch user btw,"
                 />
