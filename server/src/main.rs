@@ -2,6 +2,8 @@ use axum::{response::Html, routing::get, Router};
 use std::env;
 use tower_http::services::{ServeDir, ServeFile};
 
+const BUILD_PATH: &'static str = "../client/build";
+
 #[tokio::main]
 async fn main() {
     let port = if env::var("IS_RELEASE").is_ok() {
@@ -11,17 +13,19 @@ async fn main() {
     };
 
     let app = Router::new()
+        .nest_service("/_app", ServeDir::new(format!("{BUILD_PATH}/_app/")))
+        .nest_service("/assets", ServeDir::new(format!("{BUILD_PATH}/assets/")))
         .route_service(
-            "/",
-            get(async || {
-                Html(
-                    tokio::fs::read_to_string("../client/build/index.html")
-                        .await
-                        .expect("missing index file!"),
-                )
-            }),
+            "/favicon.svg",
+            ServeFile::new(format!("{BUILD_PATH}/favicon.svg")),
         )
-        .fallback_service(ServeDir::new("../client/build"));
+        .fallback_service(get(async || {
+            Html(
+                tokio::fs::read_to_string(format!("{BUILD_PATH}/index.html"))
+                    .await
+                    .expect("missing index file!"),
+            )
+        }));
 
     // run our app with hyper, listening globally on port 3000
     let listener = tokio::net::TcpListener::bind(format!("0.0.0.0:{}", port))

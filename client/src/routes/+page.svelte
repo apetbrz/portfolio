@@ -17,7 +17,7 @@
         <div class="lg:flex flex-col justify-evenly col-span-2">
             <img
                 class="island-mid !mx-auto lg:!mx-0 !p-2 h-min w-full aspect-square"
-                src="/workpfp.jpg"
+                src="/assets/workpfp.jpg"
                 alt="me"
             />
             <div class="island sans pretty block">
