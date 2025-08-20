@@ -2,7 +2,7 @@ use axum::{response::Html, routing::get, Router};
 use std::env;
 use tower_http::services::{ServeDir, ServeFile};
 
-const BUILD_PATH: &'static str = "../client/build";
+const BUILD_PATH: &str = "../client/build";
 
 #[tokio::main]
 async fn main() {
@@ -28,11 +28,11 @@ async fn main() {
         }));
 
     // run our app with hyper, listening globally on port 3000
-    let listener = tokio::net::TcpListener::bind(format!("0.0.0.0:{}", port))
+    let listener = tokio::net::TcpListener::bind(format!("0.0.0.0:{port}"))
         .await
         .unwrap();
 
-    println!("starting on port {}", port);
+    println!("starting on port {port}");
 
     axum::serve(listener, app).await.unwrap();
 }
