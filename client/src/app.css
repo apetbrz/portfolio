@@ -13,6 +13,9 @@ body {
     background-color: var(--color-background);
     font-family: "Geist Variable", sans-serif;
 }
+bold {
+    font-weight: 800;
+}
 
 .pretty {
     @apply prose prose-invert prose-stone drop-shadow-md shadow-stone-900/50 text-shadow-stone-900 text-shadow-md/50 tracking-widest;
