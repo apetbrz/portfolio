@@ -1,9 +1,11 @@
 <script>
     let props = $props();
+    let indent_padding = "!pl-" + props.indent;
 </script>
 
-<div class="pretty flex space-x-[1ch]">
-    <p class="!my-0 ml-{props.indent}">{props.static}</p>
+<div class="pretty flex {indent_padding}">
+    <p class="!my-0">{props.static}</p>
+    <p class="!m-0">&nbsp;</p>
     <div class="overflow-hidden flex space-x-[1ch]">
         <span class="titles text-nowrap">
             {props.text}

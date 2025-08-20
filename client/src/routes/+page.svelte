@@ -45,10 +45,10 @@
                     text="a software developer, a tinkerer, a back-end engineer, a systems
             programmer, a nerd, a tutor, a supporter, a rustacean, an arch user btw,"
                 />
-                <span
-                    >based out of Columbia, South Carolina, with a lifelong
-                    passion for knowledge and growth.</span
-                >
+                <p class="!mt-0">
+                    based out of Columbia, South Carolina, with a lifelong
+                    passion for knowledge and growth.
+                </p>
                 <p class="indent-4">
                     Currently deep in the worlds of <bold>Rust</bold>,
                     <bold>Linux</bold>, <bold>JavaScript</bold>, and
