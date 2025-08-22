@@ -29,7 +29,7 @@ bold {
 }
 
 .page-head {
-    @apply h-32 flex flex-col justify-end align-text-bottom px-16 lg:text-2xl lg:min-h-48 py-4 font-serif;
+    @apply min-h-32 flex flex-col justify-end align-text-bottom px-16 lg:text-2xl lg:min-h-48 py-4 font-serif;
 }
 
 .continent {
@@ -37,7 +37,7 @@ bold {
 }
 
 .island {
-    @apply p-8 bg-stone-700 rounded-md w-full;
+    @apply p-4 md:p-8 bg-stone-700 rounded-md w-full;
 }
 
 .island-mid {

@@ -23,7 +23,7 @@
                 alt="me"
             />
             <div class="island sans pretty flex flex-col max-md:!max-w-48">
-                <bold class="!mt-0">My Links</bold>
+                <bold class="!mt-0">Links</bold>
                 <a href="https://github.com/apetbrz" class="mt-4"> github </a>
                 <a href="mailto:apetbrz@gmail.com" class=""> gmail </a>
                 <a href="https://www.linkedin.com/in/arthur-t-petroff/">

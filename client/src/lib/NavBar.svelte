@@ -14,7 +14,7 @@
     </a>
 {/snippet}
 
-<div class="pretty continent px-16 py-8 sans">
+<div class="pretty continent px-16 py-4 md:py-8 sans">
     {@render link("home", "/")}
     {@render link("projects")}
 </div>
