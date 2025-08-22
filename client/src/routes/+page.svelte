@@ -18,11 +18,11 @@
             class="my-8 flex h-min md:flex-col gap-8 justify-evenly col-span-2"
         >
             <img
-                class="island !p-2 !max-h-[12em] !w-auto aspect-square"
+                class="island !p-2 max-md:!max-h-[12em] !w-auto aspect-square"
                 src="/assets/workpfp.jpg"
                 alt="me"
             />
-            <div class="island sans pretty flex flex-col !max-w-48">
+            <div class="island sans pretty flex flex-col max-md:!max-w-48">
                 <bold class="!mt-0">My Links</bold>
                 <a href="https://github.com/apetbrz" class="mt-4"> github </a>
                 <a href="mailto:apetbrz@gmail.com" class=""> gmail </a>
