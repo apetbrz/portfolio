@@ -61,10 +61,4 @@
 
 <style lang="postcss">
     @reference "tailwindcss";
-    .bg-scenic-image {
-        background-image: url("$lib/assets/bg-scenic-image.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position-y: -24rem;
-    }
 </style>

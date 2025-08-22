@@ -17,6 +17,13 @@ bold {
     font-weight: 800;
 }
 
+.bg-scenic-image {
+    background-image: url("$lib/assets/bg-scenic-image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom -4rem left 50%;
+}
+
 .pretty {
     @apply prose prose-invert prose-stone drop-shadow-md shadow-stone-900/50 text-shadow-stone-900 text-shadow-md/50 tracking-widest;
 }
