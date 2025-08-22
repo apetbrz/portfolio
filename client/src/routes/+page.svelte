@@ -13,9 +13,9 @@
 
     <NavBar active="home" />
 
-    <div class="md:grid grid-cols-7 gap-4 w-[100%] px-8">
+    <div class="md:grid grid-cols-7 gap-4 w-[100%] px-4 md:px-8">
         <div
-            class="my-8 flex h-min md:flex-col gap-8 justify-evenly col-span-2"
+            class="my-4 md:my-8 flex h-min md:flex-col gap-4 md:gap-8 justify-evenly col-span-2"
         >
             <img
                 class="island !p-2 max-md:!max-h-[12em] !w-auto aspect-square"
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div
-            class="md:flex col-span-5 col-start-3 space-y-4 flex-col justify-evenly h-min w-full md:p-8 mb-8"
+            class="md:flex col-span-5 col-start-3 space-y-4 flex-col justify-evenly h-min w-full md:p-8 mb-4 md:mb-8"
         >
             <div class="island pretty sans md:mt-4">
                 <Marquee
