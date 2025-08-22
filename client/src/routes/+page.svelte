@@ -4,41 +4,37 @@
 </script>
 
 <main
-    class="mx-auto overflow-hidden text-stone-100 lg:max-w-4xl md:max-w-2xl bg-scenic-image md:inset-shadow-sm/50 h-[150vh] flex flex-col"
+    class="mx-auto overflow-hidden text-stone-100 lg:max-w-4xl md:max-w-3xl bg-scenic-image bg-bottom md:inset-shadow-sm/50 h-min md:h-[150vh] flex flex-col"
 >
     <div class="pretty continent page-head">
-        <p class="!m-0">hi, I'm</p>
-        <h1 class="!m-0">Arthur Petroff</h1>
+        <p class="!m-0 invisible md:visible">hi, I'm</p>
+        <h1 class="!m-0">Arthur Taschetto Petroff</h1>
     </div>
 
     <NavBar active="home" />
 
-    <div class="lg:grid lg:grid-cols-7 gap-4 w-[100%] px-8">
-        <div class="lg:flex flex-col justify-evenly col-span-2">
+    <div class="md:grid grid-cols-7 gap-4 w-[100%] px-8">
+        <div
+            class="my-8 flex h-min md:flex-col gap-8 justify-evenly col-span-2"
+        >
             <img
-                class="island-mid !mx-auto lg:!mx-0 !p-2 h-min w-full aspect-square"
+                class="island !p-2 !max-h-[12em] !w-auto aspect-square"
                 src="/assets/workpfp.jpg"
                 alt="me"
             />
-            <div class="island sans pretty block">
-                <p class="!mt-0 w-full block">Reach out to me!</p>
-                <a href="mailto:apetbrz@gmail.com" class="w-full block">gmail</a
-                >
-                <a href="https://github.com/apetbrz" class="w-full block"
-                    >github</a
-                >
-                <a
-                    href="https://www.linkedin.com/in/arthur-t-petroff/"
-                    class="block"
-                >
+            <div class="island sans pretty flex flex-col !max-w-48">
+                <bold class="!mt-0">My Links</bold>
+                <a href="https://github.com/apetbrz" class="mt-4"> github </a>
+                <a href="mailto:apetbrz@gmail.com" class=""> gmail </a>
+                <a href="https://www.linkedin.com/in/arthur-t-petroff/">
                     linkedin
                 </a>
             </div>
         </div>
         <div
-            class="lg:flex col-span-5 col-start-3 space-y-4 flex-col justify-evenly h-min w-full p-8"
+            class="md:flex col-span-5 col-start-3 space-y-4 flex-col justify-evenly h-min w-full md:p-8 mb-8"
         >
-            <div class="island pretty sans mt-4">
+            <div class="island pretty sans md:mt-4">
                 <Marquee
                     static="I'm"
                     indent="true"

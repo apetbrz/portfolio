@@ -37,7 +37,7 @@ bold {
 }
 
 .island {
-    @apply p-8 bg-stone-700 md:rounded-md w-full;
+    @apply p-8 bg-stone-700 rounded-md w-full;
 }
 
 .island-mid {

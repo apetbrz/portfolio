@@ -3,7 +3,7 @@
 </script>
 
 <main
-    class="mx-auto overflow-hidden text-stone-100 lg:max-w-4xl md:max-w-2xl bg-scenic-image md:inset-shadow-sm/50 h-[150vh] flex flex-col"
+    class="mx-auto overflow-hidden text-stone-100 lg:max-w-4xl md:max-w-2xl bg-scenic-image md:inset-shadow-sm/50 h-min md:h-[150vh] flex flex-col"
 >
     <div class="pretty continent page-head">
         <h1 class="!mb-0">Projects</h1>
@@ -11,8 +11,10 @@
 
     <NavBar active="projects" />
 
-    <div class="pretty grid gap-8 !mb-0 grid-cols-2 float-large">
-        <div class="flex flex-col gap-8">
+    <div
+        class="pretty grid gap-4 md:gap-8 !my-0 !p-4 md:!p-8 grid-cols-2 float-large"
+    >
+        <div class="flex flex-col gap-4 md:gap-8">
             <div class="island">
                 <a href="https://github.com/apetbrz/nclbt" class="underline">
                     nclbt
@@ -32,7 +34,7 @@
                 </p>
             </div>
         </div>
-        <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-4 md:gap-8">
             <div class="island">
                 <a href="https://relics.apetbrz.dev/">QuickRelics</a>
                 <p>
