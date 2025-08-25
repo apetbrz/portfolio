@@ -36,7 +36,7 @@
         </div>
         <div class="flex flex-col gap-4 md:gap-8">
             <div class="island">
-                <a href="https://relics.apetbrz.dev/">QuickRelics</a>
+                <a href="https://relics.apetbrz.dev/">RelicLookup</a>
                 <p>
                     A web utility for parsing a public API for game information.
                 </p>
