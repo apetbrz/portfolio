@@ -6,24 +6,20 @@
     "author": "Arthur Petroff",
     "workspaces": [
         "client",
-        "server",
-        "wasm"
+        "server"
     ],
     "scripts": {
-        "init": "npm install && rustup target add wasm32-unknown-unknown && cargo install wasm-bindgen-cli && git clone --progress https://github.com/apetbrz/nclbt wasm/nclbt",
+        "init": "npm install && cd client && npm install",
         "dev": "tmux new-session -s 'portfolio (dev)' 'npm run dev:server' \\; split-window 'npm run dev:client' \\; select-layout even-horizontal \\;",
         "dev:client": "cd client && npm run dev",
         "dev:client:lan": "cd client && npm run dev -- --host",
         "dev:server": "while true; echo 'UNIMPL.'; do sleep 5; done",
-        "build": "npm run build:wasm && npm run build:js",
+        "build": "npm run build:js",
         "build:js": "cd client && npm run build",
-        "build:wasm": "(DIR=$PWD; cd wasm/nclbt && cargo xtask build_wasm $DIR/client/src/lib/pkg)",
         "clean": "rm -r client/src/lib/pkg dist",
-        "clean:wasm": "mv ./client/src/lib/",
         "start": "cd server && export IS_RELEASE=1 && cargo run --release"
     },
     "dependencies": {
-        "vite-plugin-top-level-await": "^1.6.0",
-        "vite-plugin-wasm": "^3.5.0"
+        "vite-plugin-top-level-await": "^1.6.0"
     }
 }
