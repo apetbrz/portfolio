@@ -16,8 +16,10 @@
         "dev:server": "while true; echo 'UNIMPL.'; do sleep 5; done",
         "build": "npm run build:js",
         "build:js": "cd client && npm run build",
-        "clean": "rm -r client/src/lib/pkg dist",
-        "start": "cd server && export IS_RELEASE=1 && cargo run --release"
+        "build:docker": "docker build -t portfolio .",
+        "clean": "rm -r dist",
+        "start": "cd server && export IS_RELEASE=1 && cargo run --release",
+        "start:docker": "docker run --name portfolio -p 4000:4000 -d portfolio"
     },
     "dependencies": {
         "vite-plugin-top-level-await": "^1.6.0"
