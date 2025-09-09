@@ -2,7 +2,7 @@ use axum::{response::Html, routing::get, Router};
 use std::env;
 use tower_http::services::{ServeDir, ServeFile};
 
-const BUILD_PATH: &str = "../client/build";
+const DIST_PATH: &str = "../dist";
 
 #[tokio::main]
 async fn main() {
@@ -13,17 +13,17 @@ async fn main() {
     };
 
     let app = Router::new()
-        .nest_service("/_app", ServeDir::new(format!("{BUILD_PATH}/_app/")))
-        .nest_service("/assets", ServeDir::new(format!("{BUILD_PATH}/assets/")))
+        .nest_service("/_app", ServeDir::new(format!("{DIST_PATH}/_app/")))
+        .nest_service("/assets", ServeDir::new(format!("{DIST_PATH}/assets/")))
         .route_service(
             "/favicon.svg",
-            ServeFile::new(format!("{BUILD_PATH}/favicon.svg")),
+            ServeFile::new(format!("{DIST_PATH}/favicon.svg")),
         )
         .fallback_service(get(async || {
             Html(
-                tokio::fs::read_to_string(format!("{BUILD_PATH}/index.html"))
+                tokio::fs::read_to_string(format!("{DIST_PATH}/index.html"))
                     .await
-                    .expect("missing index file!"),
+                    .expect("missing index file! "),
             )
         }));
 
