@@ -4,16 +4,18 @@ My little slice of the internet :)
 
 ## Requirements
 
-- `todo!()`
+- `npm`
+- `cargo`
 - `tmux`
+- `docker`
 
 ## Scripts
 
-- `dev` runs dev environment: server + vite + bacon
-  - The `bacon` pane includes hotkeys:
-    - `c` **c**lippy (default)
-    - `w` wasm **d**ev compilation
-    - `b` wasm release **b**uild
+- `init` installs deps
+- `dev` runs dev environment: server + vite in a `tmux` session
 - `build` builds client for release
-- `clean:dev` deletes all dev build binaries (debug WASM, primarily)
-- `clean:release` deletes all built release files (`dist/`, `release/`, etc)
+- `clean` deletes all built files (`dist/`, `release/`, etc)
+- `start` runs the server locally
+
+- `build:docker` builds the docker image
+- `start:docker` runs the docker image
