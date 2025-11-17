@@ -3,7 +3,7 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-    --color-background: #292524;
+    --color-background: #44403b;
     --font-sans: "Geist Variable";
     --font-serif: "EB Garamond Variable";
     --font-mono: "Fira-Code";
