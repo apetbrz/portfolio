@@ -6,6 +6,8 @@ const DIST_PATH: &str = "../dist";
 
 #[tokio::main]
 async fn main() {
+    println!("starting!");
+
     let port = if env::var("IS_RELEASE").is_ok() {
         4000
     } else {
