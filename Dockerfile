@@ -16,7 +16,6 @@ FROM rust:1.89-slim AS server
 WORKDIR /src
 # packages
 COPY server/Cargo.toml .
-COPY server/Cargo.lock .
 # build packages only
 RUN mkdir -v src && \
     echo 'fn main() {}' > src/main.rs && \
