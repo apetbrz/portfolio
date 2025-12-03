@@ -17,8 +17,8 @@
         <div
             class="pretty sans !w-full p-4 not-md:my-4 not-md:bg-stone-700 xl:px-16"
         >
-            <a href="https://github.com/apetbrz/nclbt" class="underline">
-                nclbt
+            <a href="https://github.com/apetbrz/nlbt" class="underline">
+                nlbt
             </a>
             <p>
                 A simple, in-development command-line utility for budget
@@ -28,18 +28,7 @@
         <div
             class="pretty sans !w-full p-4 not-md:my-4 not-md:bg-stone-700 xl:px-16"
         >
-            <a href="https://github.com/apetbrz/budget-app-project"
-                >Experimental Rust Webserver</a
-            >
-            <p>
-                A fully custom multi-threaded web server, for studying threading
-                and the internet.
-            </p>
-        </div>
-        <div
-            class="pretty sans !w-full p-4 not-md:my-4 not-md:bg-stone-700 xl:px-16"
-        >
-            <a href="https://relics.apetbrz.dev/">RelicLookup</a>
+            <a href="https://relics.apetbrz.dev/">Void Seer</a>
             <p>A web utility for parsing a public API for game information.</p>
         </div>
         <div
@@ -57,6 +46,17 @@
             <p>
                 A comparison in speed and efficiency of four different web
                 back-ends, across four programming languages.
+            </p>
+        </div>
+        <div
+            class="pretty sans !w-full p-4 not-md:my-4 not-md:bg-stone-700 xl:px-16"
+        >
+            <a href="https://github.com/apetbrz/budget-app-project"
+                >Experimental Rust Webserver</a
+            >
+            <p>
+                A fully custom multi-threaded web server, for studying threading
+                and the internet.
             </p>
         </div>
     </div>
