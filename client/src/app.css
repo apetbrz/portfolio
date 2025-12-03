@@ -18,39 +18,31 @@ bold {
 }
 
 .bg-scenic-image {
-    background-image: url("$lib/assets/bg-scenic-image.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom -4rem left 50%;
+    background-image: url("/assets/bg-scenic-image.jpg");
+    background-size: 50%;
+    background-position: top 50% left 0;
+}
+@media (max-width: 48rem) {
+    .bg-scenic-image {
+        background-size: 48em;
+        background-position: top -24em left 50%;
+    }
+}
+
+.solid {
+    @apply bg-stone-700;
 }
 
 .pretty {
-    @apply prose prose-invert prose-stone drop-shadow-md shadow-stone-900/50 text-shadow-stone-900 text-shadow-md/50 tracking-widest;
+    @apply prose prose-invert prose-stone text-shadow-stone-900 text-shadow-md/50 tracking-widest max-w-full;
 }
 
 .page-head {
-    @apply min-h-32 flex flex-col justify-end align-text-bottom px-16 lg:text-2xl lg:min-h-48 py-4 font-serif;
+    @apply min-h-32 flex flex-col justify-end align-text-bottom px-16 text-xl md:text-2xl md:min-h-48 py-4 font-serif;
 }
 
 .continent {
     @apply bg-stone-700 mx-0 min-w-full;
-}
-
-.island {
-    @apply p-4 md:p-8 bg-stone-700 rounded-md w-full;
-}
-
-.island-mid {
-    @apply my-8 mx-auto p-8 bg-stone-700 md:rounded-lg md:w-[32rem] justify-center drop-shadow-md shadow-stone-900/50 text-shadow-stone-900 text-shadow-md/50 flex space-y-2 flex-col;
-}
-
-.float-large {
-    @apply my-8 mx-auto p-8 lg:w-[52rem] md:w-[38rem];
-}
-
-.island-large {
-    @apply my-8 mx-auto p-8 lg:w-[52rem] md:w-[38rem] justify-center;
-    @apply bg-stone-700 md:rounded-lg justify-center drop-shadow-md shadow-stone-900/50 text-shadow-stone-900 text-shadow-md/50;
 }
 
 .pretty-button {

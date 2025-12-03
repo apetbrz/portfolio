@@ -4,57 +4,45 @@
 </script>
 
 <main
-    class="mx-auto overflow-hidden text-stone-100 lg:max-w-4xl md:max-w-3xl bg-scenic-image bg-bottom md:inset-shadow-sm/50 h-min md:h-[150vh] flex flex-col"
+    class="mx-auto overflow-hidden text-stone-100 w-full bg-scenic-image bg-bottom h-min flex flex-col"
 >
-    <div class="pretty continent page-head">
-        <p class="!m-0 invisible md:visible">hi, I'm</p>
-        <h1 class="!m-0">Arthur Taschetto Petroff</h1>
+    <div class="pretty continent flex flex-row justify-between items-end">
+        <div class="max-w-max page-head">
+            <p class="!m-0 invisible md:visible">hi, I'm</p>
+            <h1 class="!m-0">Arthur Taschetto Petroff</h1>
+        </div>
+        <img
+            class="w-32 aspect-square mr-16 !mb-0 rounded-xl"
+            src="/assets/workpfp.jpg"
+            alt="me"
+        />
     </div>
 
     <NavBar active="home" />
 
-    <div class="md:grid grid-cols-7 gap-4 w-[100%] px-4 md:px-8">
+    <div
+        class="flex flex-col flex-wrap items-center py-8 md:bg-stone-700 md:mx-auto md:w-2xl xl:w-5xl"
+    >
         <div
-            class="my-4 md:my-8 flex h-min md:flex-col gap-4 md:gap-8 justify-evenly col-span-2"
+            class="pretty sans !w-full p-4 not-md:my-4 not-md:bg-stone-700 xl:px-16"
         >
-            <img
-                class="island !p-2 max-md:!max-h-[12em] !w-auto aspect-square"
-                src="/assets/workpfp.jpg"
-                alt="me"
+            <Marquee
+                static="I'm"
+                text="a software developer, a systems engineer, a tinkerer, a back-end specialist, a nerd, a tutor, a supporter, a rustacean, an arch user btw,"
             />
-            <div class="island sans pretty flex flex-col max-md:!max-w-48">
-                <bold class="!mt-0">Links</bold>
-                <a href="https://github.com/apetbrz" class="mt-4"> github </a>
-                <a href="mailto:apetbrz@gmail.com" class=""> gmail </a>
-                <a href="https://www.linkedin.com/in/arthur-t-petroff/">
-                    linkedin
-                </a>
-            </div>
+            <p>
+                Currently deep in the worlds of
+                <bold>Linux</bold>, <bold>Rust</bold>, <bold>C</bold>,
+                <bold>JavaScript</bold>, and <bold>shell scripting</bold>.
+            </p>
+            <a href="/projects">Check out some things I'm working on!</a>
         </div>
-        <div
-            class="md:flex col-span-5 col-start-3 space-y-4 flex-col justify-evenly h-min w-full md:p-8 mb-4 md:mb-8"
-        >
-            <div class="island pretty sans md:mt-4">
-                <Marquee
-                    static="I'm"
-                    indent="true"
-                    text="a software developer, a tinkerer, a back-end engineer, a systems
-                        programmer, a nerd, a tutor, a supporter, a rustacean, an arch user btw,"
-                />
-                <p class="!mt-0">
-                    based out of Columbia, South Carolina, with a deep lifelong
-                    passion for tinkering.
-                </p>
-                <p class="indent-4">
-                    I'm dedicated to writing high quality, efficient,
-                    maintainable software. Currently deep in the worlds of
-                    <bold>Rust</bold>, <bold>Linux</bold>, <bold>C</bold>,
-                    <bold>JavaScript</bold>, and <bold>shell scripting</bold>,
-                    but excited about everything in the world of software!
-                </p>
-                <a href="/projects">Check out some things I've made!</a>
-            </div>
+        <div class="pretty sans p-4 not-md:my-4 not-md:bg-stone-700">
+            <a href="https://github.com/apetbrz" class="mt-4">GitHub</a>
+            <a href="mailto:apetbrz@gmail.com" class="">Gmail</a>
+            <a href="https://www.linkedin.com/in/arthur-t-petroff/">LinkedIn</a>
         </div>
+        <div class="h-128"></div>
     </div>
     <div class="mt-auto self-end pretty continent px-8">
         <p>photograph: Arthur Petroff 2024</p>
