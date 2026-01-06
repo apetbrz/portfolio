@@ -46,5 +46,5 @@ bold {
 }
 
 .pretty-button {
-    @apply p-2 bg-stone-800 rounded-md w-full border-stone-800 border-2 hover:bg-stone-900 active:bg-stone-950 focus:outline-2 focus:outline-stone-700 focus:outline-offset-2
+    @apply p-2 hover:bg-stone-600 hover:outline-stone-600 hover:outline-2 hover:outline-offset-2 focus:outline-stone-600 focus:outline-2 focus:outline-offset-2 active:bg-stone-800 active:ring-2 active:ring-stone-800 select-none;
 }

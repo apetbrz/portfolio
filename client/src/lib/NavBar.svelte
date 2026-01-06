@@ -2,19 +2,21 @@
     let props = $props();
 </script>
 
-{#snippet link(display = "home", dest = "/" + display)}
+{#snippet link(display = "home", dest = "/" + display.toLowerCase())}
     <a
         href={dest}
-        class="hover:text-stone-400 rounded-xs focus:outline-2 focus:outline-stone-100 focus:outline-offset-2 {props.active ==
-        display
+        class="mx-2 pretty-button {props.active == display.toLowerCase()
             ? 'underline'
             : '!no-underline'}"
+        draggable="false"
     >
         {display}
     </a>
 {/snippet}
 
-<div class="pretty continent px-16 !pt-4 !pb-8 md:py-8 sans">
-    {@render link("home", "/")}
-    {@render link("projects")}
+<div class="pretty continent !pt-4 !pb-8 sans">
+    <div class="mx-auto md:w-2xl xl:w-5xl px-8">
+        {@render link("Home", "/")}
+        {@render link("Projects")}
+    </div>
 </div>
