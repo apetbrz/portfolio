@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-read -p "This will delete the existing container, okay? [y/N] " conf
+read -p "This will shut down and delete the existing container, okay? [y/N] " conf
 [ "${conf,,}" = "y" ] || exit
 
 echo -n "Shutting down existing container: "

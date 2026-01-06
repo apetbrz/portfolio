@@ -54,11 +54,11 @@
                 LinkedIn
             </a>
             <a
-                href="/resume.pdf"
+                href="/assets/resume.pdf"
                 class="pretty-button bg-stone-600 !no-underline"
                 draggable="false"
             >
-                Resume (pdf)
+                Resume
             </a>
         </div>
         <div class="pretty sans p-4 not-md:bg-stone-700">
