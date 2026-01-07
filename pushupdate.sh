@@ -4,9 +4,9 @@ read -p "This will shut down and delete the existing container, okay? [y/N] " co
 [ "${conf,,}" = "y" ] || exit
 
 echo -n "Shutting down existing container: "
-docker -v kill portfolio
+docker kill portfolio
 echo -n "Deleting existing container: "
-docker -v rm portfolio
+docker rm portfolio
 echo "[Building latest version]"
 docker build -t portfolio .
 echo "
