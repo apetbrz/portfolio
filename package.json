@@ -13,7 +13,7 @@
         "dev": "tmux new-session -s 'portfolio (dev)' 'npm run dev:server' \\; split-window 'npm run dev:client' \\; select-layout even-horizontal \\;",
         "dev:client": "cd client && npm run dev",
         "dev:client:lan": "cd client && npm run dev -- --host",
-        "dev:server": "while true; echo 'UNIMPL.'; do sleep 5; done",
+        "dev:server": "echo 'no server endpoints in dev, exiting...' && sleep 3 && exit; cd server && cargo run",
         "build": "npm run build:js",
         "build:js": "cd client && npm run build",
         "build:docker": "docker build -t portfolio .",
