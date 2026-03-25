@@ -2,8 +2,10 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
+@import "./gruvbox.css";
+
 @theme {
-    --color-background: #44403b;
+    --color-background: var(--color-grv-bg1);
     --font-sans: "Geist Variable";
     --font-serif: "EB Garamond Variable";
     --font-mono: "Fira-Code";
@@ -11,40 +13,24 @@
 
 body {
     background-color: var(--color-background);
+    color: var(--color-grv-fg0);
     font-family: "Geist Variable", sans-serif;
 }
-bold {
+.bold {
     font-weight: 800;
 }
 
-.bg-scenic-image {
-    background-image: url("/assets/bg-scenic-image.jpg");
-    background-size: 50%;
-    background-position: top 50% left 0;
-}
-@media (max-width: 48rem) {
-    .bg-scenic-image {
-        background-size: 48em;
-        background-position: top -24em left 50%;
-    }
-}
-
-.solid {
-    @apply bg-stone-700;
-}
-
 .pretty {
-    @apply prose prose-invert prose-stone text-shadow-stone-900 text-shadow-md/50 tracking-widest max-w-full;
+    @apply prose prose-gruvbox tracking-widest max-w-full;
 }
 
 .page-head {
     @apply min-h-32 flex flex-col justify-end align-text-bottom px-16 text-xl md:text-2xl md:min-h-48 py-4 font-serif;
 }
 
-.continent {
-    @apply bg-stone-700 mx-0 min-w-full;
-}
-
 .pretty-button {
-    @apply p-2 hover:bg-stone-600 hover:outline-stone-600 hover:outline-2 hover:outline-offset-2 focus:outline-stone-600 focus:outline-2 focus:outline-offset-2 active:bg-stone-800 active:ring-2 active:ring-stone-800 select-none;
+    @apply p-2 hover:bg-grv-bg2 focus:outline-grv-bg2 focus:outline-1 active:bg-grv-bg3 select-none;
+}
+.pretty-button-nofocus {
+    @apply p-2 hover:bg-grv-bg2 focus:outline-0 active:bg-grv-bg3 select-none;
 }

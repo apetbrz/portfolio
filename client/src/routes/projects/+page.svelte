@@ -5,18 +5,19 @@
 <main
     class="mx-auto overflow-hidden text-stone-100 w-full bg-scenic-image bg-bottom h-min flex flex-col"
 >
-    <div class="pretty continent page-head">
-        <h1 class="!mb-0">Projects</h1>
+    <div class="pretty flex flex-row justify-center items-end">
+        <div class="w-min md:w-max page-head">
+            <h1 class="!m-0">Projects</h1>
+        </div>
     </div>
 
     <NavBar active="projects" />
 
     <div
-        class="flex flex-col flex-wrap items-center py-8 md:bg-stone-700 md:mx-auto md:w-2xl xl:w-5xl"
+		id="maindiv"
+        class="flex flex-col md:flex-row flex-wrap justify-center items-stretch py-8 md:mx-auto w-full md:max-w-4xl xl:w-5xl bg-grv-bg0"
     >
-        <div
-            class="pretty sans !w-full p-4 not-md:my-4 not-md:bg-stone-700 xl:px-16"
-        >
+        <div class="pretty sans hover:bg-grv-bg2 w-sm p-4 xl:px-16">
             <a href="https://github.com/apetbrz/nlbt" class="underline">
                 nlbt
             </a>
@@ -25,21 +26,15 @@
                 tracking.
             </p>
         </div>
-        <div
-            class="pretty sans !w-full p-4 not-md:my-4 not-md:bg-stone-700 xl:px-16"
-        >
+        <div class="pretty sans hover:bg-grv-bg2 w-sm p-4 xl:px-16">
             <a href="https://relics.apetbrz.dev/">Void Seer</a>
             <p>A web utility for parsing a public API for game information.</p>
         </div>
-        <div
-            class="pretty sans !w-full p-4 not-md:my-4 not-md:bg-stone-700 xl:px-16"
-        >
+        <div class="pretty sans hover:bg-grv-bg2 w-sm p-4 xl:px-16">
             <a href="https://apetbrz.dev">apetbrz.dev</a>
             <p>This website! A SvelteKit app.</p>
         </div>
-        <div
-            class="pretty sans !w-full p-4 not-md:my-4 not-md:bg-stone-700 xl:px-16"
-        >
+        <div class="pretty sans hover:bg-grv-bg2 w-sm p-4 xl:px-16">
             <a href="https://github.com/apetbrz/framework-project">
                 Web Framework Performance Study
             </a>
@@ -48,9 +43,7 @@
                 back-ends, across four programming languages.
             </p>
         </div>
-        <div
-            class="pretty sans !w-full p-4 not-md:my-4 not-md:bg-stone-700 xl:px-16"
-        >
+        <div class="pretty sans hover:bg-grv-bg2 w-sm p-4 xl:px-16">
             <a href="https://github.com/apetbrz/budget-app-project"
                 >Experimental Rust Webserver</a
             >
@@ -59,9 +52,6 @@
                 and the internet.
             </p>
         </div>
-    </div>
-    <div class="mt-auto self-end pretty continent px-8">
-        <p>photograph: Arthur Petroff 2024</p>
     </div>
 </main>
 

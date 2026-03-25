@@ -1,8 +1,9 @@
 <script>
+    import ThemeSelector from "$lib/ThemeSelector.svelte";
     let props = $props();
 </script>
 
-{#snippet link(display = "home", dest = "/" + display.toLowerCase())}
+{#snippet link(display = "DEFAULT_FIXME", dest = "/" + display.toLowerCase())}
     <a
         href={dest}
         class="mx-2 pretty-button {props.active == display.toLowerCase()
@@ -14,9 +15,10 @@
     </a>
 {/snippet}
 
-<div class="pretty continent !pt-4 !pb-8 sans">
-    <div class="mx-auto md:w-2xl xl:w-5xl px-8">
+<div class="pretty !pt-4 !pb-8 sans flex flex-wrap justify-between">
+    <div class="w-max px-8 content-center">
         {@render link("Home", "/")}
         {@render link("Projects")}
     </div>
+    <!-- <ThemeSelector /> -->
 </div>
