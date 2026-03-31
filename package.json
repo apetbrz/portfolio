@@ -22,6 +22,7 @@
         "start:docker": "docker run --name portfolio -p 4000:4000 -d portfolio"
     },
     "dependencies": {
+        "tailwindcss": "^4.2.2",
         "vite-plugin-top-level-await": "^1.6.0"
     }
 }

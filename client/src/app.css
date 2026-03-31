@@ -25,7 +25,7 @@ body {
 }
 
 .page-head {
-    @apply min-h-32 flex flex-col justify-end align-text-bottom px-16 text-xl md:text-2xl md:min-h-48 py-4 font-serif;
+    @apply min-h-64 flex flex-col justify-center align-text-bottom px-16 text-xl md:text-2xl md:min-h-72 py-4 font-serif;
 }
 
 .pretty-button {
