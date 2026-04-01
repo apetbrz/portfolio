@@ -17,7 +17,7 @@ import Header from "$lib/Header.svelte";
 			class="flex flex-col gap-4 mx-auto my-8 w-sm pretty sans"
 		>
 			<Marquee
-				static="I'm a"
+				static="I'm a(n)"
 				text="software developer, systems engineer, tinkerer, back-end specialist, nerd, tutor, supporter, rustacean, arch user btw, minimalist, maximalist, "
 			/>
 			<div class="mx-auto">
