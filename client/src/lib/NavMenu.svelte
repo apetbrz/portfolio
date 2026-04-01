@@ -24,7 +24,7 @@
 			<line x1="2" x2="22" y1="18" y2="18" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1"></line>
 		</svg>
 	</button>
-	<div class="pretty sans flex flex-col bg-grv-bg3 h-full relative transition-all duration-300 w-48{open ? '':''}">
+	<div class="pretty sans flex flex-col bg-grv-bg3 h-full relative transition-all duration-300 w-48">
 		{@render link("Home", "/")}
 		{@render link("Projects")}
 		<ThemeSelector />
