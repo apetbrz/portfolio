@@ -1,12 +1,15 @@
 <script>
 import Marquee from "$lib/Marquee.svelte";
-import NavBar from "$lib/NavBar.svelte";
+import NavMenu from "$lib/NavMenu.svelte";
 import Header from "$lib/Header.svelte";
 
 //TODO: HOW TO MAKE tabindex DYNAMIC WITH SIZE? for maindiv ordering (content -> links on <md, links -> content on >=md)
 </script>
 
 <main class="mx-auto overflow-hidden h-min flex flex-col min-h-screen">
+
+	<NavMenu />
+
 	<Header />
 
 	<div
