@@ -10,15 +10,6 @@
 		id="maindiv"
 		class="flex flex-col justify-center items-center w-full"
 	>
-		<a href="https://github.com/apetbrz/nlbt" class="w-md pretty sans pretty-button-nofocus">
-			<div class="sm:px-8">
-				<h3>nlbt</h3>
-				<p>
-					A simple, in-development command-line utility for budget
-					tracking.
-				</p>
-			</div>
-		</a>
 		<a href="https://relics.apetbrz.dev/" class="w-md pretty sans pretty-button-nofocus">
 			<div class="sm:px-8">
 				<h3>Void Seer</h3>
@@ -46,6 +37,16 @@
 				<p>
 					A fully custom multi-threaded web server, for studying threading
 					and the internet. Implements a custom endpoint router and per-user threads.
+					Built to serve a budget app.
+				</p>
+			</div>
+		</a>
+		<a href="https://github.com/apetbrz/nlbt" class="w-md pretty sans pretty-button-nofocus">
+			<div class="sm:px-8">
+				<h3>nlbt</h3>
+				<p>
+					A simple, in-development library/utility for budget
+					tracking.
 				</p>
 			</div>
 		</a>
