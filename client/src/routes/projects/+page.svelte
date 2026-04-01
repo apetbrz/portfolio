@@ -9,48 +9,52 @@ import Header from "$lib/Header.svelte";
 
 	<Header />
 
+	<div class="pretty sans text-center w-full">
+		<h2>Projects</h2>
+	</div>
 	<div
 		id="maindiv"
-		class="flex flex-col md:flex-row flex-wrap justify-center items-stretch md:mx-auto w-full md:max-w-4xl xl:w-5xl"
+		class="flex flex-col justify-center items-center w-full"
 	>
-		<div class="pretty sans text-center w-full">
-			<h2>Projects</h2>
-		</div>
-		<div class="pretty sans hover:bg-grv-bg2 w-sm p-4 xl:px-16">
-			<a href="https://github.com/apetbrz/nlbt" class="underline">
-				nlbt
-			</a>
-			<p>
-				A simple, in-development command-line utility for budget
-				tracking.
-			</p>
-		</div>
-		<div class="pretty sans hover:bg-grv-bg2 w-sm p-4 xl:px-16">
-			<a href="https://relics.apetbrz.dev/">Void Seer</a>
-			<p>A web utility for parsing a public API for game information.</p>
-		</div>
-		<div class="pretty sans hover:bg-grv-bg2 w-sm p-4 xl:px-16">
-			<a href="https://apetbrz.dev">apetbrz.dev</a>
-			<p>This website! A SvelteKit app.</p>
-		</div>
-		<div class="pretty sans hover:bg-grv-bg2 w-sm p-4 xl:px-16">
-			<a href="https://github.com/apetbrz/framework-project">
-				Web Framework Performance Study
-			</a>
-			<p>
-				A comparison in speed and efficiency of four different web
-				back-ends, across four programming languages.
-			</p>
-		</div>
-		<div class="pretty sans hover:bg-grv-bg2 w-sm p-4 xl:px-16">
-			<a href="https://github.com/apetbrz/budget-app-project"
-			>Experimental Rust Webserver</a
-			>
-			<p>
-				A fully custom multi-threaded web server, for studying threading
-				and the internet.
-			</p>
-		</div>
+		<a href="https://github.com/apetbrz/nlbt" class="w-md pretty sans pretty-button-nofocus">
+			<div class="sm:px-8">
+				<h3>nlbt</h3>
+				<p>
+					A simple, in-development command-line utility for budget
+					tracking.
+				</p>
+			</div>
+		</a>
+		<a href="https://relics.apetbrz.dev/" class="w-md pretty sans pretty-button-nofocus">
+			<div class="sm:px-8">
+				<h3>Void Seer</h3>
+				<p>A web utility for parsing a public API for game information.</p>
+			</div>
+		</a>
+		<a href="https://apetbrz.dev/" class="w-md pretty sans pretty-button-nofocus">
+			<div class="sm:px-8">
+				<h3>apetbrz.dev</h3>
+				<p>This website! A SvelteKit app.</p>
+			</div>
+		</a>
+		<a href="https://github.com/apetbrz/framework-project" class="w-md pretty sans pretty-button-nofocus">
+			<div class="sm:px-8">
+				<h3>Web Framework Performance Study</h3>
+				<p>
+					A comparison in speed and efficiency of four different web
+					back-ends, across four programming languages.
+				</p>
+			</div>
+		</a>
+		<a href="https://github.com/apetbrz/budget-app-project" class="w-md pretty sans pretty-button-nofocus">
+			<div class="sm:px-8">
+				<h3>Rust Webserver</h3>
+				<p>
+					A fully custom multi-threaded web server, for studying threading
+					and the internet. Implements a custom endpoint router and per-user threads.
+				</p>
+			</div>
+		</a>
 	</div>
 </main>
 
