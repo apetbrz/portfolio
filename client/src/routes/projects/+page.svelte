@@ -1,13 +1,7 @@
 <script>
-import NavMenu from "$lib/NavMenu.svelte";
-import Header from "$lib/Header.svelte";
 </script>
 
 <main class="mx-auto overflow-hidden text-stone-100 w-full bg-scenic-image bg-bottom h-min flex flex-col">
-
-	<NavMenu />
-
-	<Header />
 
 	<div class="pretty sans text-center w-full">
 		<h2>Projects</h2>

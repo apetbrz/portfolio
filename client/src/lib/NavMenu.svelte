@@ -7,7 +7,7 @@
 {#snippet link(display = "DEFAULT_FIXME", dest = "/" + display.toLowerCase())}
     <a
         href={dest}
-        class="pretty-button-nofocus h-16 content-center transition-all duration-300 {props.active == display.toLowerCase()
+        class="pretty-button-nofocus h-16 content-center {props.active == display.toLowerCase()
             ? 'underline'
             : 'no-underline!'}"
         draggable="false"
