@@ -13,9 +13,12 @@ import Header from "$lib/Header.svelte";
 				text="software developer, systems engineer, tinkerer, back-end specialist, nerd, tutor, supporter, rustacean, arch user btw, minimalist, maximalist, "
 			/>
 			<div class="mx-auto">
-				<a href="/projects" class="pretty-button-nofocus" draggable="false">
-					Check out some things I'm working on
-				</a>
+				<p class="my-0!">
+					and I'm happy to share my little corner of the internet with you. Come
+					<a href="/projects" class="pretty-button-nofocus box-decoration-clone p-1! -m-1!" draggable="false">check out some things I've made</a>
+					or
+					<a href="/blog" class="pretty-button-nofocus box-decoration-clone p-1! -m-1!" draggable="false">take a peek at what I've been up to recently.</a>
+				</p>
 			</div>
 		</div>
 		<div class="pretty w-full text-center"><h3>Contact Me</h3></div>
