@@ -32,5 +32,5 @@ body {
     @apply p-2 hover:bg-grv-bg2 focus:outline-grv-bg2 focus:outline-1 focus:-outline-offset-1 active:bg-grv-bg1 select-none;
 }
 .pretty-button-nofocus {
-    @apply p-2 hover:bg-grv-bg2 focus:outline-0 active:bg-grv-bg1 transition-all duration-300 select-none;
+    @apply p-2 hover:bg-grv-bg2 focus:outline-none active:outline-none active:bg-grv-bg1 transition-all duration-300 select-none;
 }
