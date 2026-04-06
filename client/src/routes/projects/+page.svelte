@@ -3,13 +3,11 @@
 
 <main class="mx-auto overflow-hidden text-stone-100 w-full bg-scenic-image bg-bottom h-min flex flex-col">
 
-	<div class="pretty sans text-center w-full">
+	<div class="pretty sans text-center page-head">
 		<h2>Projects</h2>
 	</div>
-	<div
-		id="maindiv"
-		class="flex flex-col justify-center items-center w-full"
-	>
+
+	<div id="maindiv" class="flex flex-col justify-center items-center w-full" >
 		<a href="https://relics.apetbrz.dev/" class="w-md pretty sans pretty-button-nofocus">
 			<div class="sm:px-8">
 				<h3>Void Seer</h3>
@@ -51,6 +49,7 @@
 			</div>
 		</a>
 	</div>
+
 </main>
 
 <style lang="postcss">

@@ -1,18 +1,13 @@
 <script>
 import Marquee from "$lib/Marquee.svelte";
-
-//TODO: HOW TO MAKE tabindex DYNAMIC WITH SIZE? for maindiv ordering (content -> links on <md, links -> content on >=md)
+import Header from "$lib/Header.svelte";
 </script>
 
+<Header />
 <main class="mx-auto overflow-hidden h-min flex flex-col min-h-screen">
 
-	<div
-		id="maindiv"
-		class="flex flex-col w-full grow"
-	>
-		<div
-			class="flex flex-col gap-4 mx-auto my-8 px-2 w-sm pretty sans"
-		>
+	<div id="maindiv" class="flex flex-col w-full grow" >
+		<div class="flex flex-col mx-auto my-8 px-2 w-sm pretty sans" >
 			<Marquee
 				static="I'm a(n)"
 				text="software developer, systems engineer, tinkerer, back-end specialist, nerd, tutor, supporter, rustacean, arch user btw, minimalist, maximalist, "
