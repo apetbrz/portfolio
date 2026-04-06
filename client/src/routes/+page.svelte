@@ -1,9 +1,9 @@
 <script>
 import Marquee from "$lib/Marquee.svelte";
-import Header from "$lib/Header.svelte";
+import Hero from "$lib/Hero.svelte";
 </script>
 
-<Header />
+<Hero />
 <main class="mx-auto overflow-hidden h-min flex flex-col min-h-screen">
 
 	<div id="maindiv" class="flex flex-col w-full grow" >
