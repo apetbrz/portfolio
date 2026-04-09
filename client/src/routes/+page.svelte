@@ -13,40 +13,42 @@ import Hero from "$lib/Hero.svelte";
 				text="software developer, systems engineer, tinkerer, back-end specialist, nerd, tutor, supporter, rustacean, arch user btw, minimalist, maximalist, "
 			/>
 			<div class="mx-auto">
-				<p class="my-0!">
+				<p class="my-0! smooth-theme-change">
 					and I'm happy to share my little corner of the internet with you. Come
-					<a href="/projects" class="pretty-button-nofocus box-decoration-clone p-1! -m-1!" draggable="false">check out some things I've made</a>
+					<a href="/projects" class="pretty-button smooth-theme-change box-decoration-clone p-1! -m-1!" draggable="false">check out some things I've made</a>
 					or
-					<a href="/blog" class="pretty-button-nofocus box-decoration-clone p-1! -m-1!" draggable="false">take a peek at what I've been up to recently.</a>
+					<a href="/blog" class="pretty-button smooth-theme-change box-decoration-clone p-1! -m-1!" draggable="false">take a peek at what I've been up to recently.</a>
 				</p>
 			</div>
 		</div>
-		<div class="pretty w-full text-center"><h3>Contact Me</h3></div>
+		<div class="pretty w-full text-center">
+			<h3 class="smooth-theme-change">Contact Me</h3>
+		</div>
 		<div class="flex flex-row flex-wrap justify-center mx-auto w-sm md:w-2xl pretty sans">
 			<a
 				href="/assets/resume.pdf"
-				class="pretty-button-nofocus no-underline!"
+				class="pretty-button smooth-theme-change no-underline!"
 				draggable="false"
 			>
 				Resume
 			</a>
 			<a
 				href="https://github.com/apetbrz"
-				class="pretty-button-nofocus no-underline!"
+				class="pretty-button smooth-theme-change no-underline!"
 				draggable="false"
 			>
 				GitHub
 			</a>
 			<a
 				href="https://www.linkedin.com/in/arthur-t-petroff/"
-				class="pretty-button-nofocus no-underline!"
+				class="pretty-button smooth-theme-change no-underline!"
 				draggable="false"
 			>
 				LinkedIn
 			</a>
 			<a
 				href="mailto:apetbrz@gmail.com"
-				class="pretty-button-nofocus no-underline!"
+				class="pretty-button smooth-theme-change no-underline!"
 				draggable="false"
 			>
 				Email

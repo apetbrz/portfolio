@@ -14,7 +14,7 @@ $effect(() => {
 })
 
 let tray_timeout_id;
-const tray_timeout_ms = 10_000
+const tray_timeout_ms = 3_000
 const tray_icon_animation_dur = "0.2s"
 
 let handle_tray_toggle = () => {
@@ -33,7 +33,7 @@ let handle_tray_timeout = () => {
 {#snippet link(display = "DEFAULT_FIXME", dest = "/" + display.toLowerCase())}
 	<a
 		href={dest}
-		class="pretty-button-nofocus px-8! h-16 content-center {props.active == display.toLowerCase()
+		class="pretty-button smooth-theme-change px-8! h-16 content-center {props.active == display.toLowerCase()
 			? 'underline'
 			: 'no-underline!'}"
 		draggable="false"
@@ -59,8 +59,9 @@ let handle_tray_timeout = () => {
 	<button
 		on:click={handle_tray_toggle}
 		class="pretty-button-nofocus absolute left-48 h-16 w-16"
+		tabindex="-1"
 	>
-		<svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24">
+		<svg class="mx-auto smooth-theme-change" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24">
 			<line x1="2" y1="6" x2="22" y2="6" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2">
 				<animate class="arrow-anim-open" attributeName="x1" dur={tray_icon_animation_dur} fill="freeze" begin="indefinite" to="4" />
 				<animate class="arrow-anim-open" attributeName="x2" dur={tray_icon_animation_dur} fill="freeze" begin="indefinite" to="20" />
@@ -92,7 +93,7 @@ let handle_tray_timeout = () => {
 		</svg>
 	</button>
 
-	<div class="pretty sans flex flex-col bg-grv-bg3 h-full relative transition-all duration-300 w-48" tabindex="-1" inert={!open}>
+	<div class="pretty sans flex flex-col py-4 bg-grv-bg2 h-full relative transition-all duration-300 w-48" tabindex="-1" inert={!open}>
 		{@render link("Home", "/")}
 		{@render link("Projects")}
 		{@render link("Blog")}

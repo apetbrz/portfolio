@@ -5,32 +5,37 @@
 @import "./gruvbox.css";
 
 @theme {
-    --color-background: var(--color-grv-bg1);
-    --font-sans: "Geist Variable";
-    --font-serif: "EB Garamond Variable";
-    --font-mono: "Fira-Code";
+	--color-background: var(--color-grv-bg1);
+	--font-sans: "Geist Variable";
+	--font-serif: "EB Garamond Variable";
+	--font-mono: "Fira-Code";
 }
 
 body {
-    background-color: var(--color-background);
-    color: var(--color-grv-fg0);
-    font-family: "Geist Variable", sans-serif;
+	background-color: var(--color-background);
+	color: var(--color-grv-fg0);
+	font-family: "Geist Variable", sans-serif;
+	@apply transition-colors duration-300;
 }
 .bold {
-    font-weight: 800;
+	font-weight: 800;
 }
 
 .pretty {
-    @apply prose prose-gruvbox tracking-widest max-w-full;
+	@apply prose prose-gruvbox tracking-widest max-w-full;
+}
+
+.smooth-theme-change {
+	@apply transition-colors duration-300;
 }
 
 .page-head {
-    @apply min-h-64 flex flex-col justify-center align-text-bottom px-16 text-xl md:text-2xl md:min-h-72 py-4 font-serif;
+	@apply min-h-64 flex flex-col justify-center align-text-bottom px-16 text-xl md:text-2xl md:min-h-72 py-4 font-serif;
 }
 
 .pretty-button {
-    @apply p-2 hover:bg-grv-bg2 focus:outline-grv-bg2 focus:outline-1 focus:-outline-offset-1 active:bg-grv-bg1 select-none;
+	@apply p-2 hover:bg-grv-bg2 outline-grv-fg2 outline-0 -outline-offset-1 focus:outline-1 active:bg-grv-bg1 select-none;
 }
 .pretty-button-nofocus {
-    @apply p-2 hover:bg-grv-bg2 outline-0 -outline-offset-1 focus:outline-1 active:outline-none active:bg-grv-bg1 transition-colors duration-300 select-none;
+	@apply p-2 hover:bg-grv-bg2 outline-0 focus:outline-0 active:outline-none active:bg-grv-bg1 select-none;
 }
