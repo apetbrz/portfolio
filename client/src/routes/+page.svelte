@@ -12,13 +12,13 @@ import Hero from "$lib/Hero.svelte";
 				static="I'm a(n)"
 				text="software developer, systems engineer, tinkerer, back-end specialist, nerd, tutor, supporter, rustacean, arch user btw, minimalist, maximalist, "
 			/>
-			<div class="mx-auto">
+			<div class="mx-auto text-center">
 				<p class="my-0! smooth-theme-change">
-					and I'm happy to share my little corner of the internet with you. Come
-					<a href="/projects" class="pretty-button smooth-theme-change box-decoration-clone p-1! -m-1!" draggable="false">check out some things I've made</a>
-					or
-					<a href="/blog" class="pretty-button smooth-theme-change box-decoration-clone p-1! -m-1!" draggable="false">take a peek at what I've been up to recently.</a>
+					and I'm happy to share my little corner of the internet with you.
+					<!-- or -->
+					<!-- <a href="/blog" class="pretty-button smooth-theme-change box-decoration-clone p-1! -m-1!" draggable="false">take a peek at what I've been up to recently.</a> -->
 				</p>
+				<a href="/projects" class="pretty-button smooth-theme-change box-decoration-clone p-1! -m-1!" draggable="false">Come check out what I've made!</a>
 			</div>
 		</div>
 		<div class="pretty w-full text-center">
