@@ -1,28 +1,28 @@
 {
-    "name": "portfolio",
-    "version": "0.0.0",
-    "description": "my web portfolio",
-    "license": "MIT",
-    "author": "Arthur Petroff",
-    "workspaces": [
-        "client",
-        "server"
-    ],
-    "scripts": {
-        "init": "npm install",
-        "dev": "tmux new-session -s 'portfolio (dev)' 'npm run dev:server' \\; split-window 'npm run dev:client' \\; select-layout even-horizontal \\;",
-        "dev:client": "cd client && npm run dev",
-        "dev:client:lan": "cd client && npm run dev -- --host",
-        "dev:server": "echo 'no server endpoints in dev, exiting...' && sleep 3 && exit; cd server && cargo run",
-        "build": "npm run build:js",
-        "build:js": "cd client && npm run build",
-        "build:docker": "docker build -t portfolio .",
-        "clean": "rm -r dist",
-        "start": "cd server && export IS_RELEASE=1 && cargo run --release",
-        "start:docker": "docker run --name portfolio -p 4000:4000 -d portfolio"
-    },
-    "dependencies": {
-        "tailwindcss": "^4.2.2",
-        "vite-plugin-top-level-await": "^1.6.0"
-    }
+	"name": "portfolio",
+	"version": "0.0.0",
+	"description": "my web portfolio",
+	"license": "MIT",
+	"author": "Arthur Petroff",
+	"workspaces": [
+		"client",
+		"server"
+	],
+	"scripts": {
+		"init": "npm install",
+		"dev": "tmux new-session -s 'portfolio (dev)' 'npm run dev:server' \\; split-window 'npm run dev:client' \\; select-layout even-horizontal \\;",
+		"dev:client": "cd client && npm run dev",
+		"dev:client:lan": "cd client && npm run dev -- --host",
+		"dev:server": "cd server && env RUST_BACKTRACE=1 RUST_LOG=tower_http=trace bacon run",
+		"build": "npm run build:js",
+		"build:js": "cd client && npm run build",
+		"build:docker": "docker build -t portfolio .",
+		"clean": "rm -r dist",
+		"start": "cd server && export IS_RELEASE=1 && cargo run --release",
+		"start:docker": "docker run --name portfolio -p 4000:4000 -d portfolio"
+	},
+	"dependencies": {
+		"tailwindcss": "^4.2.2",
+		"vite-plugin-top-level-await": "^1.6.0"
+	}
 }

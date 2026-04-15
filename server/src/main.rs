@@ -1,6 +1,8 @@
-use axum::{response::{Redirect, Html}, routing::get, Router};
+use axum::{Router, http::Uri, response::Html, routing::get};
 use std::env;
-use tower_http::services::{ServeDir, ServeFile};
+use tower_http::{services::{ServeDir, ServeFile}, trace::{DefaultOnRequest, TraceLayer}};
+
+mod redirects;
 
 const DIST_PATH: &str = "../dist";
 
@@ -14,6 +16,8 @@ async fn main() {
         3000
     };
 
+    tracing_subscriber::fmt::init();
+
     let app = Router::new()
         .nest_service("/_app", ServeDir::new(format!("{DIST_PATH}/_app/")))
         .nest_service("/assets", ServeDir::new(format!("{DIST_PATH}/assets/")))
@@ -21,21 +25,23 @@ async fn main() {
             "/favicon.svg",
             ServeFile::new(format!("{DIST_PATH}/favicon.svg")),
         )
-        .route("/x-vs-wayland", get(|| async { Redirect::to("https://canartuc.medium.com/x11-vs-wayland-the-40-year-display-server-war-explained-37ac8bb0d720") }))
-        .fallback_service(get(async || {
+        .nest_service("/r", redirects::router())
+        .fallback_service(get(async |p: Uri| {
             Html(
                 tokio::fs::read_to_string(format!("{DIST_PATH}/index.html"))
                     .await
-                    .expect("missing index file! "),
+                    .expect(&format!["missing index file at {}",p]),
             )
-        }));
+        }))
+        .layer(TraceLayer::new_for_http()
+            .on_request(DefaultOnRequest::new())
+        );
 
-    // run our app with hyper, listening globally on port 3000
     let listener = tokio::net::TcpListener::bind(format!("0.0.0.0:{port}"))
         .await
         .unwrap();
 
-    println!("starting on port {port}");
+    println!("listening on port {port}");
 
     axum::serve(listener, app).await.unwrap();
 }
