@@ -1,8 +1,9 @@
+@import "./gruvbox.css";
 @import "tailwindcss";
+
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
-@import "./gruvbox.css";
 
 @theme {
 	--color-background: var(--color-grv-bg1);
