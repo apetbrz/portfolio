@@ -12,21 +12,22 @@ COPY client client
 RUN npm run build
 
 # build server rs
-FROM rust:1.89-slim AS server
+FROM rust:1.95-slim AS server
 WORKDIR /src
 # packages
 COPY server/Cargo.toml .
 # build packages only
-RUN mkdir -v src && \
-    echo 'fn main() {}' > src/main.rs && \
-    cargo build --release && \
-    rm -Rvf src
+RUN mkdir src && echo 'fn main() {}' > src/main.rs
+RUN cargo fetch
+RUN cargo build --release
+RUN rm src/main.rs
 # src files
-COPY server/src src
+COPY server/src ./src/
+RUN touch src/main.rs
 RUN cargo build --release
 
 # host
-FROM rust:1.89-slim
+FROM rust:1.95-slim
 WORKDIR /srv
 ENV IS_RELEASE=1
 # built files
