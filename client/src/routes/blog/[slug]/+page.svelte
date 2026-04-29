@@ -1,8 +1,11 @@
 <script>
+export let data, metadata;
+console.table(data)
+console.table(metadata)
 </script>
 
 <svelte:head>
-	<title>Arthur's Blog</title>
+	<title>Arthur's Blog - </title>
 </svelte:head>
 
 <main class="mx-auto overflow-hidden text-stone-100 w-full bg-scenic-image bg-bottom h-min flex flex-col">
@@ -12,6 +15,7 @@
 	</div>
 
 	<div id="maindiv" class="flex flex-col justify-center items-center w-full" >
+		{data}
 	</div>
 
 </main>
