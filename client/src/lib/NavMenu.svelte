@@ -7,7 +7,6 @@ $effect(() => {
 	let anim = open? "arrow-anim-open" : "arrow-anim-close";
 
 	let els = document.getElementsByClassName(anim)
-	console.table(els)
 	for(const el in els){
 		els.item(el)?.beginElement();
 	}
@@ -42,10 +41,10 @@ let handle_tray_timeout = () => {
 	</a>
 {/snippet}
 
-<div
-	on:mouseenter={reset_tray_timeout}
-	on:mouseleave={handle_tray_timeout}
-	on:focusout={(event) => {
+<nav
+	onmouseenter={reset_tray_timeout}
+	onmouseleave={handle_tray_timeout}
+	onfocusout={(event) => {
 		if (
 			this.contains(event.relatedTarget) ||
 			!document.hasFocus()
@@ -57,7 +56,8 @@ let handle_tray_timeout = () => {
 	class="fixed w-64 top-0 bottom-0 min-h-[100vh] transition-all duration-300 z-10 {open ? 'left-0':'-left-48'}"
 >
 	<button
-		on:click={handle_tray_toggle}
+		title="navigation_handle"
+		onclick={handle_tray_toggle}
 		class="pretty-button-nofocus absolute left-48 h-16 w-16"
 		tabindex="-1"
 	>
@@ -99,4 +99,4 @@ let handle_tray_timeout = () => {
 		{@render link("Blog")}
 		<ThemeSelector />
 	</div>
-</div>
+</nav>

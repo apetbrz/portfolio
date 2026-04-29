@@ -34,7 +34,7 @@ if (browser) {
 		let el = document.getElementById(anim)
 		el.beginElement();
 	}}>
-			<a class="pretty smooth-theme-change sans my-auto no-underline!">Theme</a>
+			<span class="pretty smooth-theme-change sans my-auto no-underline! font-medium">Theme</span>
 			<svg class="my-auto rotate-0 group-open:-rotate-0 transform smooth-theme-change inline" fill="none" height="24" width="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
 				<polyline points="6 9 12 15 18 9">
 					<animate id="arrow-anim-close" attributeName="points" dur="0.1s" fill="freeze" begin="indefinite" to="6 9 12 15 18 9" />
