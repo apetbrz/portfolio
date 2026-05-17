@@ -1,7 +1,7 @@
 import { enhancedImages } from '@sveltejs/enhanced-img';
-import { defineConfig } from 'vite';
 import { sveltekit } from '@sveltejs/kit/vite';
 import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'vite';
 import topLevelAwait from 'vite-plugin-top-level-await'
 
 export default defineConfig({
@@ -13,6 +13,8 @@ export default defineConfig({
 	server: {
 		proxy: {
 			'/r': 'http://localhost:3000',
+			'/blog/content': 'http://localhost:3000',
+			'/blog/assets': 'http://localhost:3000'
 		}
 	}
 });
