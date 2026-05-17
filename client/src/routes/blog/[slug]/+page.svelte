@@ -1,7 +1,5 @@
 <script>
-export let data, metadata;
-console.table(data)
-console.table(metadata)
+let { data } = $props();
 </script>
 
 <svelte:head>
@@ -11,11 +9,11 @@ console.table(metadata)
 <main class="mx-auto overflow-hidden text-stone-100 w-full bg-scenic-image bg-bottom h-min flex flex-col">
 
 	<div class="pretty sans text-center page-head">
-		<h2>Blog</h2>
+		<h2>{ data.metadata.title }</h2>
 	</div>
 
-	<div id="maindiv" class="flex flex-col justify-center items-center w-full" >
-		{data}
+	<div id="maindiv" class="text-left w-full md:w-lg lg:w-4xl md:mx-auto pretty" >
+		{@html data.html }
 	</div>
 
 </main>
