@@ -14,7 +14,8 @@ export default defineConfig({
 		proxy: {
 			'/r': 'http://localhost:3000',
 			'/blog/content': 'http://localhost:3000',
-			'/blog/assets': 'http://localhost:3000'
+			'/blog/assets': 'http://localhost:3000',
+			'/blog/metadata': 'http://localhost:3000'
 		}
 	}
 });

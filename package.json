@@ -10,7 +10,7 @@
 	],
 	"scripts": {
 		"init": "npm install",
-		"dev": "tmux new-session -s 'portfolio (dev)' 'npm run dev:server' \\; split-window 'npm run dev:client' \\; select-layout even-horizontal \\;",
+		"dev": "tmux new-session -s 'portfolio (dev)' 'npm run dev:client' \\; split-window 'npm run dev:server' \\; select-layout even-horizontal \\;",
 		"dev:client": "cd client && npm run dev",
 		"dev:client:lan": "cd client && npm run dev -- --host",
 		"dev:server": "cd server && env RUST_BACKTRACE=1 bacon run",
