@@ -1,7 +1,7 @@
 use std::net::SocketAddr;
 
 use axum::Router;
-use tower_http::{services::{ServeDir, ServeFile}, trace::{DefaultOnRequest, TraceLayer}};
+use tower_http::{LatencyUnit, services::{ServeDir, ServeFile}, trace::{DefaultMakeSpan, DefaultOnRequest, DefaultOnResponse, TraceLayer}};
 use tracing::{event, Level};
 
 use crate::cfg::init_cfg;
@@ -24,7 +24,19 @@ async fn main() {
         .route_service("/", ServeFile::new(cfg.assets.join("index.html")))
         .nest_service("/r", services::redirects::router(cfg.redirects))
         .nest_service("/blog", services::blog::router(cfg.blog_server))
-        .layer(TraceLayer::new_for_http().on_request(DefaultOnRequest::new().level(Level::INFO)))
+        .layer(TraceLayer::new_for_http()
+            .make_span_with(
+                DefaultMakeSpan::new().level(Level::INFO)
+            )
+            .on_request(
+                DefaultOnRequest::new().level(Level::INFO)
+            )
+            .on_response(
+                DefaultOnResponse::new()
+                    .level(Level::INFO)
+                    .latency_unit(LatencyUnit::Micros)
+            )
+        )
         .nest_service(
             "/_app",
             ServeDir::new(cfg.assets.join("_app/")),
