@@ -1,30 +1,37 @@
 use std::collections::HashMap;
 
-use axum::{Router, extract::Path, response::Redirect, routing::get};
-use tower_http::trace::{DefaultOnRequest, TraceLayer};
+use axum::{Router, extract::{Path, State}, response::Redirect, routing::get};
+use tracing::{Level, event};
 
-type RedirectPair = (&'static str, &'static str);
-type RedirectList = &'static[RedirectPair];
-
-//TODO: MOVE TO server.toml CONFIG FILE!! WAY NICER
-const REDIRECTS: RedirectList = &[
-    ("x-vs-wayland", "https://canartuc.medium.com/x11-vs-wayland-the-40-year-display-server-war-explained-37ac8bb0d720")
-];
-
-pub fn router() -> Router<HashMap<String, String>> {
-    Router::new()
-        .route("/{*key}", get(handle_redirect_list))
-        .route("/", get(Redirect::to("/")))
-        .layer(TraceLayer::new_for_http()
-            .on_request(DefaultOnRequest::new())
-        )
+pub fn router(state: Option<HashMap<String, String>>) -> Router {
+    match state {
+        Some(redirects) => {
+            event!(Level::INFO, "redirects service on!");
+            base_router()
+                .merge(redirects_handler(redirects))
+        }
+        None => {
+            event!(Level::INFO, "redirects service settings missing, ignoring...");
+            base_router()
+        }
+    }
 }
 
-async fn handle_redirect_list(Path(path): Path<String>) -> Redirect {
+fn base_router() -> Router {
+    Router::new()
+        .route("/", get(Redirect::to("/")))
+}
+fn redirects_handler(state: HashMap<String, String>) -> Router {
+    Router::new()
+        .route("/{*key}", get(handle_redirect_list))
+        .with_state(state)
+}
+
+async fn handle_redirect_list(State(redirects): State<HashMap<String, String>>, Path(path): Path<String>) -> Redirect {
     Redirect::to(
-        REDIRECTS.iter()
-        .find(|(uri, _)| uri == &path)
-        .map(|(_, link)| *link)
-        .unwrap_or("/404")
+        redirects
+            .get(&path)
+            .map(|s| s.as_str())
+            .unwrap_or("/")
     )
 }

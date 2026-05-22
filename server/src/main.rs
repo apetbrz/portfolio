@@ -1,7 +1,7 @@
 use std::net::SocketAddr;
 
 use axum::Router;
-use tower_http::{services::{ServeDir, ServeFile}, trace::TraceLayer};
+use tower_http::{services::{ServeDir, ServeFile}, trace::{DefaultOnRequest, TraceLayer}};
 use tracing::{event, Level};
 
 use crate::cfg::init_cfg;
@@ -18,39 +18,13 @@ async fn main() {
     tracing_subscriber::fmt().with_max_level(level).init();
 
     event!(Level::INFO, "starting...");
-
     let cfg = init_cfg().expect("failed to init config");
-
-    #[cfg(debug_assertions)]
-    let addr = SocketAddr::from(([0, 0, 0, 0], cfg.dev_port.unwrap_or(cfg.port)));
-    #[cfg(not(debug_assertions))]
-    let addr = SocketAddr::from(([0, 0, 0, 0], cfg.port));
-
     event!(Level::INFO, "config initialized");
-
-    let app = Router::new();
-
-    // redirects
-    let app = if let Some(redirects) = cfg.redirects {
-        event!(Level::INFO, "redirects service on!");
-        app.nest_service("/r", services::redirects::router().with_state(redirects))
-    } else {
-        app
-    };
-
-    // blog
-    let app = if let Some(blog_server) = cfg.blog_server {
-        event!(Level::INFO, "blog service on!");
-        app.nest_service(
-            "/blog",
-            services::blog::router().with_state(reqwest::Url::parse(&blog_server).unwrap()),
-        )
-    } else {
-        app
-    };
-
-    // SvelteKit files
-    let app = app
+    let app = Router::new()
+        .route_service("/", ServeFile::new(cfg.assets.join("index.html")))
+        .nest_service("/r", services::redirects::router(cfg.redirects))
+        .nest_service("/blog", services::blog::router(cfg.blog_server))
+        .layer(TraceLayer::new_for_http().on_request(DefaultOnRequest::new().level(Level::INFO)))
         .nest_service(
             "/_app",
             ServeDir::new(cfg.assets.join("_app/")),
@@ -63,15 +37,20 @@ async fn main() {
             "/favicon.svg",
             ServeFile::new(cfg.assets.join("favicon.svg")),
         )
-        .fallback_service(ServeFile::new(cfg.assets.join("index.html")));
-
-    let app = app.layer(TraceLayer::new_for_http());
+        .fallback_service(ServeFile::new(cfg.assets.join("index.html")))
+        .layer(TraceLayer::new_for_http().on_request(DefaultOnRequest::new().level(Level::DEBUG)))
+    ;
 
     event!(Level::INFO, "routes initialized");
 
+    #[cfg(debug_assertions)]
+    let addr = SocketAddr::from(([0, 0, 0, 0], cfg.dev_port.unwrap_or(cfg.port)));
+    #[cfg(not(debug_assertions))]
+    let addr = SocketAddr::from(([0, 0, 0, 0], cfg.port));
+
     let listener = tokio::net::TcpListener::bind(addr)
         .await
-        .expect(&format!("failed to bind to TCP socket at {addr}"));
+        .unwrap_or_else(|_| panic!("failed to bind to TCP socket at {addr}"));
 
     event!(Level::INFO, "...listening on {addr}!");
 

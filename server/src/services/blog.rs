@@ -8,13 +8,22 @@ use axum::{
 use reqwest::Url;
 use tracing::{Level, event};
 
-pub fn router() -> Router<Url> {
-    //           /blog
-    Router::new()
-        .route("/content/{*id}", get(post))
-        .route("/assets/{*id}", get(asset))
-        .route("/metadata", get(index))
-        .route("/metadata/{*filter}", get(post_meta))
+pub fn router(blog_server: Option<String>) -> Router {
+    match blog_server {
+        Some(url) => {
+            event!(Level::INFO, "blog service on!");
+            Router::new()
+                .route("/content/{*id}", get(post))
+                .route("/assets/{*id}", get(asset))
+                .route("/metadata", get(index))
+                .route("/metadata/{*filter}", get(post_meta))
+                .with_state(reqwest::Url::parse(&url).unwrap())
+        }
+        None => {
+            event!(Level::INFO, "blog service settings missing, ignoring...");
+            Router::new()
+        }
+    }
 }
 
 async fn fetch_from_cache_server(
