@@ -6,11 +6,11 @@ export const ssr = false;
 
 export const load = async ({ fetch }) => {
 	const res = await fetch(`/blog/metadata`)
-	const data = await res.json()
-
-	if (!data) {
-		error(404, "Can't find content");
+	if(res.ok) {
+		const data = await res.json()
+		return { entries: data };
 	}
-
-	return { entries: data };
+	else {
+		return { error: res.status, message: "Currently under maintanence!" };
+	}
 }

@@ -25,10 +25,15 @@ let { data } = $props();
 		<h2>Blog</h2>
 	</div>
 
-	<div id="maindiv" class="flex flex-col justify-center items-center w-full" >
-		{#each data.entries as entry}
-			{@render post(entry)}
-		{/each}
+	<div id="maindiv" class="flex flex-col justify-center items-center w-full pretty" >
+		{#if data.error}
+			<h3>{data.message}</h3>
+			<p>{data.error}</p>
+		{:else}
+			{#each data?.entries as entry}
+				{@render post(entry)}
+			{/each}
+		{/if}
 	</div>
 
 </main>
