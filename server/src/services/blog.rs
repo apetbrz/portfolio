@@ -35,7 +35,7 @@ async fn fetch_from_cache_server(
         return Err(StatusCode::INTERNAL_SERVER_ERROR);
     };
 
-    event!(Level::DEBUG, "fetching: {}", url);
+    event!(Level::INFO, "fetching: {}", url);
 
     let res = reqwest::get(url)
         .await
