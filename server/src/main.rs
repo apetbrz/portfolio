@@ -1,7 +1,7 @@
 use std::net::SocketAddr;
 
 use axum::Router;
-use tower_http::services::{ServeDir, ServeFile};
+use tower_http::{services::{ServeDir, ServeFile}, trace::TraceLayer};
 use tracing::{event, Level};
 
 use crate::cfg::init_cfg;
@@ -65,6 +65,8 @@ async fn main() {
     } else {
         app
     };
+
+    let app = app.layer(TraceLayer::new_for_http());
 
     event!(Level::INFO, "routes initialized");
 
