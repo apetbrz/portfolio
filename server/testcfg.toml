@@ -1,0 +1,8 @@
+dev_port = 3000
+port = 4000
+
+assets = "/srv/dist"
+blog_server = "http://localhost/"
+
+[redirects]
+test_link = "http://localhost/"

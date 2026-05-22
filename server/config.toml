@@ -1,8 +1,8 @@
-DEV_PORT = 3000
-PORT = 4000
+dev_port = 3000
+port = 4000
 
-ASSETS = "dist/"
-BLOG_CACHE_SERVER="http://localhost:3123"
+assets = "dist/"
+blog_server = "http://localhost:3123"
 
 [redirects]
 x-vs-wayland = "https://canartuc.medium.com/x11-vs-wayland-the-40-year-display-server-war-explained-37ac8bb0d720"
