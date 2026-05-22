@@ -11,7 +11,11 @@ mod services;
 
 #[tokio::main]
 async fn main() {
-    tracing_subscriber::fmt::init();
+    let level = match std::env::var_os("DEBUG_TRACE").is_some() {
+        true => Level::DEBUG,
+        false => Level::INFO
+    };
+    tracing_subscriber::fmt().with_max_level(level).init();
 
     event!(Level::INFO, "starting...");
 
