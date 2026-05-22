@@ -33,6 +33,7 @@ ENV IS_RELEASE=1
 # built files
 COPY --from=client /src/dist dist
 COPY --from=server /src/target/release/server bin/server
+COPY server/redirects.toml redirects.toml
 # exec
 WORKDIR /srv/bin
 CMD ["./server"]

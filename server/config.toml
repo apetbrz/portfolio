@@ -3,6 +3,3 @@ port = 4000
 
 assets = "dist/"
 blog_server = "http://localhost:3123"
-
-[redirects]
-x-vs-wayland = "https://canartuc.medium.com/x11-vs-wayland-the-40-year-display-server-war-explained-37ac8bb0d720"

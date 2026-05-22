@@ -8,6 +8,7 @@ pub fn init_cfg() -> Result<AppConfig, ConfigError> {
     let cfg: AppConfig = Config::builder()
         .add_source(env_cfg()?)
         .add_source(file_cfg("config")?)
+        .add_source(file_cfg("redirects")?)
         .build()?
         .try_deserialize()?;
 
