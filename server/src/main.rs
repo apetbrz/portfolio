@@ -23,29 +23,12 @@ async fn main() {
 
     #[cfg(debug_assertions)]
     let addr = SocketAddr::from(([0, 0, 0, 0], cfg.dev_port.unwrap_or(cfg.port)));
-
     #[cfg(not(debug_assertions))]
     let addr = SocketAddr::from(([0, 0, 0, 0], cfg.port));
 
     event!(Level::INFO, "config initialized");
 
     let app = Router::new();
-
-    // SvelteKit files
-    let app = app
-        .fallback_service(ServeFile::new(cfg.assets.join("index.html")))
-        .nest_service(
-            "/_app",
-            ServeDir::new(cfg.assets.join("_app/")),
-        )
-        .nest_service(
-            "/assets",
-            ServeDir::new(cfg.assets.join("assets/")),
-        )
-        .route_service(
-            "/favicon.svg",
-            ServeFile::new(cfg.assets.join("favicon.svg")),
-        );
 
     // redirects
     let app = if let Some(redirects) = cfg.redirects {
@@ -65,6 +48,22 @@ async fn main() {
     } else {
         app
     };
+
+    // SvelteKit files
+    let app = app
+        .nest_service(
+            "/_app",
+            ServeDir::new(cfg.assets.join("_app/")),
+        )
+        .nest_service(
+            "/assets",
+            ServeDir::new(cfg.assets.join("assets/")),
+        )
+        .route_service(
+            "/favicon.svg",
+            ServeFile::new(cfg.assets.join("favicon.svg")),
+        )
+        .fallback_service(ServeFile::new(cfg.assets.join("index.html")));
 
     let app = app.layer(TraceLayer::new_for_http());
 
