@@ -2,10 +2,10 @@ import { enhancedImages } from '@sveltejs/enhanced-img';
 import { sveltekit } from '@sveltejs/kit/vite';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
-import topLevelAwait from 'vite-plugin-top-level-await'
+//import topLevelAwait from 'vite-plugin-top-level-await'
 
 export default defineConfig({
-	plugins: [tailwindcss(), enhancedImages(), sveltekit(), topLevelAwait()],
+	plugins: [tailwindcss(), enhancedImages(), sveltekit(), /*topLevelAwait()*/],
 	build: {
 		outDir: "../dist",
 		emptyOutDir: true,
