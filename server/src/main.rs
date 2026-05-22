@@ -1,19 +1,13 @@
-use std::env;
 use std::net::SocketAddr;
 
 use axum::Router;
-use config::Config;
 use tower_http::services::{ServeDir, ServeFile};
-use tracing::{Level, event};
+use tracing::{event, Level};
 
-//mod api;
-mod services;
+use crate::cfg::init_cfg;
+
 mod cfg;
-
-use crate::cfg::ServerConfig;
-
-const PORT: &str = env!("PORT");
-const ASSETS: &str = env!("ASSETS");
+mod services;
 
 #[tokio::main]
 async fn main() {
@@ -21,56 +15,58 @@ async fn main() {
 
     event!(Level::INFO, "starting...");
 
-    let settings = Config::builder()
-        .add_source(config::File::with_name("config"))
-        .add_source(config::Environment::with_prefix("APP"))
-        .build()
-        .expect("config building");
+    let cfg = init_cfg().expect("failed to init config");
 
-    let port = settings.get_int("PORT").expect("key PORT in config") as u16;
-    let blog_server = match settings.get_string("BLOG_CACHE_SERVER") {
-        Ok(str) => {
-            event!(Level::INFO, "blog service set to {str}");
-            Some(str)
-        }
-        Err(e) => {
-            event!(Level::WARN, "could not load blog provider server url from config: {e:?}");
-            event!(Level::WARN, "continuing without blog endpoints...");
-            None
-        }
-    };
-    let do_blog = blog_server.is_some();
+    #[cfg(debug_assertions)]
+    let addr = SocketAddr::from(([0, 0, 0, 0], cfg.dev_port.unwrap_or(cfg.port)));
 
-    let context = ServerConfig::new(blog_server.unwrap_or("".into()));
-    let addr = SocketAddr::from(([127, 0, 0, 1], port));
+    #[cfg(not(debug_assertions))]
+    let addr = SocketAddr::from(([0, 0, 0, 0], cfg.port));
 
     event!(Level::INFO, "config initialized");
 
-    let app = Router::new()
-        // SvelteKit files
-        .fallback_service(ServeFile::new(format!("{ASSETS}/index.html")))
-        .nest_service("/_app", ServeDir::new(format!("{ASSETS}/_app/")))
-        .nest_service("/assets", ServeDir::new(format!("{ASSETS}/assets/")))
+    let app = Router::new();
 
-        // favicon
-        .route_service( "/favicon.svg", ServeFile::new(format!("{ASSETS}/favicon.svg")))
+    // SvelteKit files
+    let app = app
+        .fallback_service(ServeFile::new(cfg.assets.join("index.html")))
+        .nest_service(
+            "/_app",
+            ServeDir::new(cfg.assets.join("_app/")),
+        )
+        .nest_service(
+            "/assets",
+            ServeDir::new(cfg.assets.join("assets/")),
+        )
+        .route_service(
+            "/favicon.svg",
+            ServeFile::new(cfg.assets.join("favicon.svg")),
+        );
 
-        // redirects
-        .nest_service("/r", services::redirects::router().with_state(context.clone()))
+    // redirects
+    let app = if let Some(redirects) = cfg.redirects {
+        event!(Level::INFO, "redirects service on!");
+        app.nest_service("/r", services::redirects::router().with_state(redirects))
+    } else {
+        app
+    };
 
-        //config
-        .with_state(context.clone());
-
-    let app = if do_blog {
-        app.nest_service("/blog", services::blog::router().with_state(context.clone()))
-    }
-    else { app };
+    // blog
+    let app = if let Some(blog_server) = cfg.blog_server {
+        event!(Level::INFO, "blog service on!");
+        app.nest_service(
+            "/blog",
+            services::blog::router().with_state(reqwest::Url::parse(&blog_server).unwrap()),
+        )
+    } else {
+        app
+    };
 
     event!(Level::INFO, "routes initialized");
 
     let listener = tokio::net::TcpListener::bind(addr)
         .await
-        .expect(&format!("failed to bind to TCP socket at port {PORT}"));
+        .expect(&format!("failed to bind to TCP socket at {addr}"));
 
     event!(Level::INFO, "...listening on {addr}!");
 
