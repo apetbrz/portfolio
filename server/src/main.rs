@@ -24,6 +24,7 @@ async fn main() {
         .route_service("/", ServeFile::new(cfg.assets.join("index.html")))
         .nest_service("/r", services::redirects::router(cfg.redirects))
         .nest_service("/blog", services::blog::router(cfg.blog_server))
+        .fallback_service(ServeFile::new(cfg.assets.join("index.html")))
         .layer(TraceLayer::new_for_http()
             .make_span_with(
                 DefaultMakeSpan::new().level(Level::INFO)
