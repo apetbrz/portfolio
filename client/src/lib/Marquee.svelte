@@ -3,14 +3,14 @@ let props = $props();
 </script>
 
 <div class="marquee pretty flex {props.indent ? 'pl-4!' : ''}">
-	<p class="my-0! text-nowrap smooth-theme-change">{props.static}</p>
+	<p class="my-0! text-nowrap">{props.static}</p>
 	<p class="m-0!">&nbsp;</p>
 	<div class="overflow-hidden">
 		<div class="w-max slide">
-			<span class="text-nowrap smooth-theme-change">
+			<span class="text-nowrap">
 				{props.text}
 			</span>
-			<span class="text-nowrap smooth-theme-change">
+			<span class="text-nowrap">
 				{props.text}
 			</span>
 		</div>
@@ -21,7 +21,7 @@ let props = $props();
 @reference "tailwindcss";
 
 .slide {
-	animation: 20s slide linear infinite 2s;
+	animation: 20s slide linear infinite 0.5s;
 }
 @keyframes slide {
 	0% {

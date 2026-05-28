@@ -12,31 +12,38 @@
 	--font-mono: "Fira-Code";
 }
 
+:root {
+	--default-transition-duration: 300ms;
+}
+
 body {
 	background-color: var(--color-background);
 	color: var(--color-grv-fg0);
 	font-family: "Geist Variable", sans-serif;
-	@apply transition-colors duration-300;
+	transition-property: background-color;
+	transition-duration: var(--default-transition-duration);
 }
 .bold {
 	font-weight: 800;
 }
 
 .pretty {
-	@apply prose prose-gruvbox tracking-widest max-w-full;
+	@apply prose prose-gruvbox tracking-widest max-w-full transition-colors
+	prose-headings:duration-(--default-transition-duration)
+	prose-code:duration-(--default-transition-duration)
+	prose-pre:duration-(--default-transition-duration)
+	prose-ul:duration-(--default-transition-duration)
+	prose-ol:duration-(--default-transition-duration)
+	prose-li:duration-(--default-transition-duration)
+	prose-a:duration-(--default-transition-duration)
+	marker:duration-(--default-transition-duration)
+	;
 }
 
-.smooth-theme-change {
-	@apply transition-colors duration-300;
+.pretty-link {
+	@apply tracking-widest no-underline hover:underline text-grv-green hover:text-grv-green-bright outline-0 focus:outline-0 focus:text-grv-green-bright focus:font-bold px-1;
 }
 
 .page-head {
-	@apply min-h-64 flex flex-col justify-center align-text-bottom px-16 text-xl md:text-2xl md:min-h-72 py-4 font-serif;
-}
-
-.pretty-button {
-	@apply p-2 hover:bg-grv-bg2 outline-grv-fg2 outline-0 -outline-offset-1 focus:outline-1 active:bg-grv-bg1 select-none;
-}
-.pretty-button-nofocus {
-	@apply p-2 hover:bg-grv-bg2 outline-0 focus:outline-0 active:outline-none active:bg-grv-bg1 select-none;
+	@apply flex flex-col justify-center align-text-bottom text-xl md:text-2xl py-4 font-serif;
 }

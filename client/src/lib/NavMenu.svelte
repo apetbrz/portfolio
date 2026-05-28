@@ -29,10 +29,10 @@ let handle_tray_timeout = () => {
 
 </script>
 
-{#snippet link(display = "DEFAULT_FIXME", dest = "/" + display.toLowerCase())}
+{#snippet navlink(display = "DEFAULT_FIXME", dest = "/" + display.toLowerCase())}
 	<a
 		href={dest}
-		class="pretty-button smooth-theme-change px-8! h-16 content-center {props.active == display.toLowerCase()
+		class="pretty-button px-8! h-16 content-center {props.active == display.toLowerCase()
 			? 'underline'
 			: 'no-underline!'}"
 		draggable="false"
@@ -61,7 +61,7 @@ let handle_tray_timeout = () => {
 		class="pretty-button-nofocus absolute left-48 h-16 w-16"
 		tabindex="-1"
 	>
-		<svg class="mx-auto smooth-theme-change" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24">
+		<svg class="mx-auto" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24">
 			<line x1="2" y1="6" x2="22" y2="6" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2">
 				<animate class="arrow-anim-open" attributeName="x1" dur={tray_icon_animation_dur} fill="freeze" begin="indefinite" to="4" />
 				<animate class="arrow-anim-open" attributeName="x2" dur={tray_icon_animation_dur} fill="freeze" begin="indefinite" to="20" />
@@ -94,9 +94,9 @@ let handle_tray_timeout = () => {
 	</button>
 
 	<div class="pretty sans flex flex-col py-4 bg-grv-bg2 h-full relative transition-all duration-300 w-48" tabindex="-1" inert={!open}>
-		{@render link("Home", "/")}
-		{@render link("Projects")}
-		{@render link("Blog")}
+		{@render navlink("Home", "/")}
+		{@render navlink("Projects")}
+		{@render navlink("Blog")}
 		<ThemeSelector />
 	</div>
 </nav>
