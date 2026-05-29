@@ -4,10 +4,13 @@ let { data } = $props();
 
 {#snippet post(entry)}
 <li class="w-full py-4">
-	<a href={"/blog/" + entry[0]} class="no-underline! font-normal! hover:bg-grv-bg2 focus:bg-grv-gb2 focus:outline-0 outline-0">
-		<div>
-			<span class="pretty-link">
-					{entry[1].title} - {Temporal.PlainDate.from(entry[1].date).toLocaleString()}
+	<a href={"/blog/" + entry[0]} class="no-underline! font-normal! hover:bg-grv-bg2 focus:bg-grv-bg2 focus:outline-0 outline-0">
+		<div class="hover:bg-grv-bg2 focus:bg-grv-bg2">
+			<span>
+				<span class="pretty-link">
+					{entry[1].title}
+				</span>
+				- {Temporal.PlainDate.from(entry[1].date).toLocaleString()}
 			</span>
 			<p>{entry[1].description}</p>
 		</div>
