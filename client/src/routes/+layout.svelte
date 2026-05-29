@@ -7,6 +7,11 @@ import "@fontsource-variable/fira-code";
 import { page } from "$app/state";
 import ThemeSelector from "$lib/ThemeSelector.svelte";
 
+import { onMount } from 'svelte';
+
+let ready = $state(false);
+onMount(() => ready = true);
+
 let { children } = $props();
 </script>
 
@@ -19,6 +24,7 @@ let { children } = $props();
 	</a>
 {/snippet}
 
+{#if ready}
 <div class="h-screen max-w-screen flex not-md:flex-col md:justify-center md:items-center px-4 xl:px-8 md:max-h-screen">
 	<aside class="pretty relative not-md:w-full border-grv-bg4 not-md:border-b md:border-r md:px-4 xl:px-8 not-md:pb-8">
 		<ThemeSelector />
@@ -38,6 +44,7 @@ let { children } = $props();
 		{@render children()}
 	</main>
 </div>
+{/if}
 
 <style lang="postcss">
 @reference "tailwindcss";
