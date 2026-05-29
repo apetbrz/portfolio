@@ -42,6 +42,7 @@ let { children } = $props();
 {/if}
 
 <style lang="postcss">
+@import '../app.css';
 @reference "tailwindcss";
 :root {
 	--default-transition-duration: 300ms;
