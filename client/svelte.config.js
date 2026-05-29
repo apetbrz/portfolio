@@ -7,13 +7,11 @@ const config = {
 		adapter: adapter({
 			pages: '../dist',
 			assets: '../dist',
-			fallback: 'index.html',
-			precompress: true,
+			fallback: '200.html',
+			precompress: false,
 			strict: true
 		})
 	},
-	extensions: ['.svelte', '.svx'],
-	preprocess: [mdsvex()],
 };
 
 export default config;

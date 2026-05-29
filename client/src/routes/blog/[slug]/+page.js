@@ -1,9 +1,5 @@
 import { error } from '@sveltejs/kit';
 
-export const prerender = false;
-// export const csr = true;
-// export const ssr = false;
-
 export const load = async ({ fetch, params }) => {
 	const res = await fetch(`/blog/content/${params.slug}`)
 	if(res.ok) {
