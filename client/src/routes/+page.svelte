@@ -2,6 +2,10 @@
 import Marquee from "$lib/Marquee.svelte";
 </script>
 
+<svelte:head>
+	<title>apetbrz.dev</title>
+</svelte:head>
+
 {#snippet link(display = "DEFAULT_FIXME", dest = "/" + display.toLowerCase())}
 	<a
 		href={dest}

@@ -2,6 +2,10 @@
 let { data } = $props();
 </script>
 
+<svelte:head>
+	<title>Arthur's Blog</title>
+</svelte:head>
+
 {#snippet post(entry)}
 <li class="w-full py-4">
 	<a href={"/blog/" + entry[0]} class="no-underline! font-normal! hover:bg-grv-bg2 focus:bg-grv-bg2 focus:outline-0 outline-0">
@@ -17,10 +21,6 @@ let { data } = $props();
 	</a>
 </li>
 {/snippet}
-
-<svelte:head>
-	<title>Arthur's Blog</title>
-</svelte:head>
 
 <ul id="maindiv" class="flex flex-col justify-center items-center mx-auto w-md pretty divide-y divide-grv-gray-faded">
 	{#if data.error}

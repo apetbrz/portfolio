@@ -1,6 +1,10 @@
 <script>
 </script>
 
+<svelte:head>
+	<title>Arthur's Projects</title>
+</svelte:head>
+
 {#snippet project(name, url, desc)}
 <div class="w-full">
 	<p>
