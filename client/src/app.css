@@ -4,6 +4,7 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
+@custom-variant hocus (&:hover, &:focus);
 
 @theme {
 	--color-background: var(--color-grv-bg1);
@@ -22,6 +23,7 @@ body {
 	font-family: "Geist Variable", sans-serif;
 	transition-property: background-color;
 	transition-duration: var(--default-transition-duration);
+	@apply starting:bg-(--color-background);
 }
 .bold {
 	font-weight: 800;
@@ -41,7 +43,7 @@ body {
 }
 
 .pretty-link {
-	@apply tracking-widest no-underline hover:underline text-grv-green hover:text-grv-green-bright outline-0 focus:outline-0 focus:text-grv-green-bright focus:font-bold px-1;
+	@apply tracking-widest px-1 text-grv-green hover:text-grv-green-bright focus:text-grv-green-bright outline-none focus:outline-none motion-safe:focus:font-bold motion-safe:hover:font-bold not-hocus:decoration-transparent underline-offset-3;
 }
 
 .page-head {
