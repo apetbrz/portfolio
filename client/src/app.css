@@ -28,7 +28,7 @@ body {
 }
 
 .pretty {
-	@apply prose prose-gruvbox tracking-widest max-w-full transition-colors
+	@apply prose prose-gruvbox tracking-widest max-w-full transition-[color]
 	prose-headings:duration-(--default-transition-duration)
 	prose-code:duration-(--default-transition-duration)
 	prose-pre:duration-(--default-transition-duration)
