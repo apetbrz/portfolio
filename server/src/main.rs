@@ -45,7 +45,7 @@ async fn main() {
             "/favicon.svg",
             ServeFile::new(cfg.assets.join("favicon.svg")),
         )
-        .fallback_service(ServeFile::new(cfg.assets.join("index.html")))
+        .fallback_service(ServeFile::new(cfg.assets.join("200.html")))
         .layer(TraceLayer::new_for_http().on_request(DefaultOnRequest::new().level(Level::DEBUG)));
 
     event!(Level::INFO, "routes initialized");
