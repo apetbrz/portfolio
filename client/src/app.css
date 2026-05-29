@@ -13,7 +13,7 @@
 }
 
 :root {
-	--default-transition-duration: 300ms;
+	--default-transition-duration: 0ms;
 }
 
 body {

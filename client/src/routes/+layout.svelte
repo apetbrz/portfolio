@@ -42,4 +42,7 @@ let { children } = $props();
 
 <style lang="postcss">
 @reference "tailwindcss";
+:root {
+	--default-transition-duration: 300ms;
+}
 </style>
