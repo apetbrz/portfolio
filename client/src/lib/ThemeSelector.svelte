@@ -13,7 +13,7 @@ if (browser) {
 </script>
 
 <button
-	class="bg-none text-4xl absolute not-md:right-0 outline-0 focus:outline-0 focus:text-grv-fg0 text-fg4"
+	class="bg-none text-2xl py-2 absolute not-md:right-0 outline-0 focus:outline-0 focus:text-grv-fg0 text-fg4"
 	role="switch"
 	aria-checked={dark_mode}
 	aria-labelledby={`theme-switch`}
