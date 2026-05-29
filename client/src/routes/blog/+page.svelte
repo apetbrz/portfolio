@@ -11,7 +11,7 @@ let { data } = $props();
 	<a href={"/blog/" + entry[0]} class="no-underline! font-normal! focus:outline-none outline-none group">
 		<div class="p-4 group-hocus:bg-grv-bg2">
 			<span>
-				<span class="pretty-link group-hocus:font-bold group-hocus:text-grv-green-bright">
+				<span class="pretty-link group-hocus:font-bold group-hocus:text-grv-green-bright!">
 					{entry[1].title}
 				</span>
 				- {Temporal.PlainDate.from(entry[1].date).toLocaleString()}
