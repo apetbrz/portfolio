@@ -8,10 +8,10 @@ let { data } = $props();
 
 {#snippet post(entry)}
 <li class="w-full py-4">
-	<a href={"/blog/" + entry[0]} class="no-underline! font-normal! focus:outline-none outline-none group">
+	<a href={"/blog/" + entry[0]} class="no-underline! focus:outline-none group">
 		<div class="p-4 group-hocus:bg-grv-bg2">
 			<span>
-				<span class="pretty-link group-hocus:font-bold group-hocus:text-grv-green-bright!">
+				<span class="pretty-link-plain group-hocus:text-grv-green-bright!">
 					{entry[1].title}
 				</span>
 				- {Temporal.PlainDate.from(entry[1].date).toLocaleString()}
@@ -22,7 +22,7 @@ let { data } = $props();
 </li>
 {/snippet}
 
-<ul id="maindiv" class="flex flex-col mx-auto pretty divide-y divide-grv-gray-faded w-lg">
+<ul id="maindiv" class="flex flex-col mx-auto pretty border-y border-grv-gray-faded divide-y divide-grv-gray-faded w-lg">
 	{#if data.error}
 		<h3>{data.message}</h3>
 		<p>{data.error}</p>

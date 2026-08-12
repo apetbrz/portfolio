@@ -70,7 +70,10 @@ body {
 }
 
 .pretty-link {
-	@apply tracking-widest px-1 text-grv-green hover:text-grv-green-bright focus:text-grv-green-bright outline-none focus:outline-none motion-safe:focus:font-bold motion-safe:hover:font-bold not-hocus:decoration-transparent underline-offset-3;
+	@apply tracking-widest px-1 text-grv-green hover:text-grv-green-bright focus:text-grv-green-bright outline-none focus:outline-none motion-safe:hocus:font-bold not-hocus:decoration-transparent underline-offset-3;
+}
+.pretty-link-plain {
+	@apply tracking-widest px-1 text-grv-green outline-none focus:outline-none not-hocus:decoration-transparent underline-offset-3;
 }
 
 .page-head {
