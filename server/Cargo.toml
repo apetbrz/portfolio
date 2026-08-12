@@ -4,7 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-async = "0.0.0"
 axum = { version = "0.8.4", features = ["macros"] }
 cached = { version = "0.59.0", features = ["serde"] }
 config = "0.15.22"

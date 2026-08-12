@@ -43,12 +43,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7d902e3d592a523def97af8f317b08ce16b7ab854c1985a0c671e6f15cebc236"
 
 [[package]]
-name = "async"
-version = "0.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6232ae588d3c787fe1175eca53dd2b088fb7405efebd9d145e4e0afe7a4e79f1"
-
-[[package]]
 name = "async-trait"
 version = "0.1.89"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1793,7 +1787,6 @@ dependencies = [
 name = "server"
 version = "0.1.0"
 dependencies = [
- "async",
  "axum",
  "cached",
  "config",
