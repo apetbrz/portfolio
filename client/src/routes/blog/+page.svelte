@@ -7,31 +7,30 @@ let { data } = $props();
 </svelte:head>
 
 {#snippet post(entry)}
-<li class="w-full py-4">
+<div class="w-full">
 	<a href={"/blog/" + entry[0]} class="no-underline! focus:outline-none group">
 		<div class="p-4 group-hocus:bg-grv-bg2">
 			<span>
-				<span class="pretty-link-plain group-hocus:text-grv-green-bright!">
+				<span class="pretty-link group-hocus:text-grv-green-bright!">
 					{entry[1].title}
 				</span>
-				- {Temporal.PlainDate.from(entry[1].date).toLocaleString()}
+				{Temporal.PlainDate.from(entry[1].date)?.toLocaleString()}
 			</span>
-			<p class="mb-0!">{entry[1].description}</p>
+			<p class="mb-0! mt-2! font-normal">{entry[1].description}</p>
 		</div>
 	</a>
-</li>
+</div>
 {/snippet}
 
-<ul id="maindiv" class="flex flex-col mx-auto pretty border-y border-grv-gray-faded divide-y divide-grv-gray-faded w-lg">
+<div id="maindiv" class="pretty flex flex-col mx-auto w-lg justify-center items-center divide-y divide-grv-gray-faded" >
 	{#if data.error}
-		<h3>{data.message}</h3>
-		<p>{data.error}</p>
+		{@render post(["", { title: data.message, description: data.error } ])}
 	{:else}
 		{#each data?.entries as entry}
 			{@render post(entry)}
 		{/each}
 	{/if}
-</ul>
+</div>
 
 <style lang="postcss">
 @reference "tailwindcss";

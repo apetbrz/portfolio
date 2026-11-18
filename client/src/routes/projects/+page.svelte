@@ -7,10 +7,16 @@
 
 {#snippet project(name, url, desc)}
 <div class="w-full">
-	<p>
-		<a href={url} class="pretty-link">{name}</a>
-		- {desc}
-	</p>
+	<a href={url} class="no-underline! focus:outline-none group">
+		<div class="p-4 group-hocus:bg-grv-bg2">
+			<span>
+				<span class="pretty-link-plain group-hocus:font-bold group-hocus:text-grv-green-bright! group-hocus:underline">
+					{name}
+				</span>
+			</span>
+			<p class="mb-0! mt-2! font-normal">{desc}</p>
+		</div>
+	</a>
 </div>
 {/snippet}
 
