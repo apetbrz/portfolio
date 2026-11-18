@@ -3,7 +3,7 @@ let { data } = $props();
 </script>
 
 <svelte:head>
-	<title>Arthur's Blog</title>
+	<title>~/blog</title>
 </svelte:head>
 
 {#snippet post(entry)}

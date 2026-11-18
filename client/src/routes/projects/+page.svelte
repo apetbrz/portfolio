@@ -2,7 +2,7 @@
 </script>
 
 <svelte:head>
-	<title>Arthur's Projects</title>
+	<title>~/projects</title>
 </svelte:head>
 
 {#snippet project(name, url, desc)}
